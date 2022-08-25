@@ -1,0 +1,57 @@
+@charset "ISO-8859-1";
+
+body {
+	background-image: url("../images/contactus.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: o;
+	padding: 0;
+	margin: o;
+}
+
+h1, h2 {
+	color: white;
+	text-align: center;
+}
+
+.container {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	height: 300px;
+	padding: 20px;
+	width: 50%;
+}
+
+.container p {
+	font-size: 18px;
+	margin-left: 30px;
+}
+
+.fa {
+	padding: 20px;
+	font-size: 30px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 2px;
+}
+
+.fa-facebook {
+	color: white;
+}
+
+.fa-twitter {
+	color: white;
+}
+
+.fa-google {
+	color: white;
+}
+
+.fa-gmail {
+	color: white;
+}
+
+.fa-phone {
+	color: white
+}

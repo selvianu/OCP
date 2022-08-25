@@ -1,0 +1,62 @@
+@charset "ISO-8859-1";
+
+body{
+	background: url(../images/bg-pattern-top.svg) top -500px left -300px
+		no-repeat, url(../images/bg-pattern-bottom.svg) bottom -600px right
+		-150px no-repeat;
+	background-color: rgb(211, 246, 248);
+}
+
+.logout-panel{
+	background-image: linear-gradient(80deg, rgba(255, 77, 210, 0.5),
+		rgba(153, 51, 255, 0.5));
+	border-radius: 50px;
+	font-size: 20px;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bolder;
+	height: auto;
+	width: 20%;
+	padding: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	display: flex;
+	flex-direction: column;
+}
+
+.input-icon i {
+	margin-left: 10px;
+	margin-top: 10px;
+	position: absolute;
+}
+
+.input-icon {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.icon {
+	min-width: 40px;
+}
+
+.input-field {
+	padding-bottom: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+input[type="submit"]{
+	background-color: maroon;
+	border: none;
+	color: white;
+	cursor: pointer;
+	height: 30px;
+	margin-top: 20px;
+	outline: none;
+	width: 100%
+}
+
+input {
+	border: none;
+	outline: 1px solid maroon;
+}

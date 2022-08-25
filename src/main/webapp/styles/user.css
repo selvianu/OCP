@@ -1,0 +1,298 @@
+@charset "ISO-8859-1";
+
+body {
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+header {
+	/* 	background-color: rgb(166, 89, 89); */
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 80px;
+}
+
+ul {
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+li {
+	display: inline-block;
+	justify-content: right;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.left {
+	float: left;
+	height: 80px;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	width: 150px;
+	margin: 0;
+}
+
+li a {
+	color: rgb(166, 89, 89);
+	font-size: 20px;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+.admin {
+	float: right;
+	font-size: 25px;
+	font-weight: bolder;
+	margin-right: 20px;
+	margin-top: 25px;
+}
+
+.search {
+	align-items: stretch;
+	border: 1px solid black;
+	display: flex;
+	height: 50px;
+	height: 50px;
+	margin-left: 300px;
+	width: 500px;
+}
+
+.search input {
+	border: none;
+	outline: none;
+	text-align: center;
+	width: 100%;
+}
+
+.search button {
+	background-color: rgb(78, 203, 245);
+	border: none;
+	cursor: pointer;
+	height: 100%;
+	outline: none;
+	padding: 10px;
+	width: 100%
+}
+
+.profile {
+	float: right;
+	margin-right: 20px
+}
+
+nav {
+	background-color: rgb(166, 89, 89);
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.menu {
+	display: flex;
+	width: 100%;
+}
+
+.menu li {
+	cursor: pointer;
+	height: 40px;
+	padding-top: 10px;
+	width: 150px;
+}
+
+.menu li a {
+	color: white;
+}
+
+.catgry {
+	display: flex;
+	width: 75%;
+}
+
+.catgry li {
+	cursor: pointer;
+	height: 40px;
+	padding-top: 10px;
+	width: 120px;
+}
+
+.catgry li a {
+	color: white;
+}
+
+.catgry li:hover, .menu li:hover {
+	background-color: rgba(1, 1, 1, 0.5);
+}
+
+.history {
+	align-items: stretch;
+	display: flex;
+	flex-direction: row;
+	width: 33%;
+}
+
+.history li {
+	cursor: pointer;
+	height: 40px;
+	padding-top: 10px;
+	width: 200px;
+}
+
+.history li a {
+	color: white;
+}
+
+.history li:hover {
+	background-color: rgba(1, 1, 1, 0.5);
+}
+
+.slide-container {
+	height: 400px;
+	width: 100%;
+}
+
+.text {
+	align-items: center;
+	background-color: rgba(26, 26, 26, 0.4);
+	border-radius: 20px;
+	color: #e6f2ff;
+	display: flex;
+	font-size: 30px;
+	flex-direction: column;
+	height: 200px;
+	justify-content: center;
+	margin-left: 40px;
+	margin-top: 40px;
+	position: absolute;
+	text-align: center;
+	width: 40%;
+}
+
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.topic {
+	color: rgb(0, 26, 0);
+	font-size: 25px;
+	text-align: center;
+}
+
+.books-container {
+	display: grid;
+	gap: 50px;
+	grid-template-columns: 25% 25% 25% 25%;
+	row-gap: 50px;
+	padding-bottom: 50px;
+	padding-left: 80px;
+	padding-right: 230px;
+	padding-top: 50px;
+	width: 80%;
+}
+
+.books-container>div {
+	border-radius: 20px;
+	box-shadow: 5px 10px 20px hsl(240, 1%, 34%);
+	height: 100%;
+	padding: 20px;
+	position: relative;
+	text-align: center;
+}
+
+.books-container>div>img {
+	height: 300px;
+	border-radius: 20px;
+	width: 220px;
+}
+
+.books-container button {
+	background-color: rgb(255, 77, 136);
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	outline: none;
+	width: 100px;
+	height: 30px;
+}
+
+.view {
+	font-size: 20px;
+	margin-left: 48%;
+}
+
+table {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+td, th {
+	text-align: left;
+	padding: 10px;
+	/* width: 100px; */
+}
+
+.center_col {
+	padding-left: 40px;
+}
+
+th {
+	background-color: #d68989;
+}
+
+tr:nth-child(odd) {
+	background-color: #ecc0c0;
+}
+
+footer {
+	background-color: rgb(166, 89, 89);
+	display: flex;
+	height: 100px;
+	justify-content: space-between;
+	margin-top: 50px;
+	padding-right: 50px;
+}
+
+footer ul {
+	display: flex;
+	flex-direction: column;
+}
+
+footer ul li {
+	text-align: left;
+}
+
+footer ul li a {
+	color: white;
+	font-size: 15px;
+}
+
+.addr {
+	color: white;
+	margin-top: 15px;
+}

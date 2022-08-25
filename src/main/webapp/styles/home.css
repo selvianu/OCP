@@ -1,0 +1,99 @@
+@charset "ISO-8859-1";
+
+body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+nav {
+	background-color: rgb(166, 89, 89);
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 60px;
+}
+
+ul {
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+li {
+	display: inline-block;
+	float: right;
+	justify-content: right;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 19px;
+	padding-bottom: 19px;
+	text-align: center;
+	width: 100px;
+}
+
+.left {
+	float: left;
+	padding: 0;
+	text-align: left;
+	margin: 0;
+}
+
+li a {
+	color: white;
+	font-size: 20px;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+li:hover {
+	background-color: rgba(26, 26, 26, 0.4);
+	color: rgb(54, 50, 48);
+}
+
+.title {
+	background-image: url("../images/bok.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 510px;
+	padding-top: 100px;
+	padding-left: 20px;
+	width: 100%;
+}
+
+.title div {
+	background-color: rgba(26, 26, 26, 0.4);
+	border-radius: 20px;
+	color: #e6f2ff;
+	font-size: 50px;
+	text-align: center;
+	height: 300px;
+	padding: 20px;
+	width: 40%;
+}
+
+.title div p {
+	color: white;
+	font-size: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 30px;
+	width: 45%;
+}
+
+.title div span {
+	font-size: 25px;
+}
+
+button {
+	background-color: rgb(255, 230, 230);
+	border: none;
+	border-radius: 50px;
+	color: maroon;
+	cursor: pointer;
+	font-size: 18px;
+	height: 40px;
+	outline: none;
+	width: 150px;
+}

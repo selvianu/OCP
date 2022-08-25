@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sign in page</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+	<header>
+		<img alt="logo" src="images/Mars.png">
+	</header>
+	<p style="color: red; text-align: center;">${msg}</p>
+	<fieldset class="panel">
+		<legend>Sign in</legend>
+		<form action="/signin">
+			<div class="input-icon">
+				<i class="fa fa-user icon"></i> <input type="text"
+					placeholder="Enter Username" name="username" class="input-field" pattern="[A-Za-z0-9]{5,15}"
+					title="Please enter a valid username. The username should contain 5 to 10 alpha numeric letters" required>
+				<i class="fa fa-envelope icon"></i> <input type="email"
+					placeholder="Enter your email id" name="email" class="input-field" required pattern="[a-z0-9._%+-]+@gmail+\.com"> <i
+					class="fa fa-lock icon"></i> <input type="password"
+					placeholder="Enter a password" name="pwd" class="input-field" 
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+  					title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+				<input type="submit" value="Sign in" class="signin" />
+			</div>
+		</form>
+
+		<p>If you already signed please login</p>
+
+		<a href="login.jsp"><input type="button" value="login"
+			class="login" /></a>
+	</fieldset>
+
+</body>
+</html>
