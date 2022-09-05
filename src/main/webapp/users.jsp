@@ -8,6 +8,9 @@
 <meta charset="ISO-8859-1">
 <title>Administrator page</title>
 <link rel="stylesheet" href="styles/user.css">
+<link rel="stylesheet" href="styles/dropdown.css">
+<link rel="stylesheet" href="styles/table.css">
+
 </head>
 <body>
 	<header>
@@ -24,8 +27,17 @@
 		<div class="menu">
 			<ul>
 				<li><a href="home.jsp">Home</a></li>
-				<li><a href="/Books">Books</a></li>
-				<li><a href="orders.jsp">Orders</a></li>
+				<li class="dropdown"><a href="Books" class="dropbtn">Books</a>
+					<div class="dropdown-content">
+    					<a href="Novels">Novels</a>
+    					<a href="Poetry">Poetry</a>
+    					<a href="History">History</a>
+    					<a href="Education">Education</a>
+    					<a href="Biography">Biography</a>
+    					<a href="Books">All Books</a>
+  					</div>
+				</li>
+				<li><a href="Orders">Orders</a></li>
 				<li><a href="Users">Users</a></li>
 				<li><a href="addbooks.jsp">Add Books</a></li>
 			</ul>
@@ -48,7 +60,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="user" items="${data}">
+				<c:forEach var="user" items="${users}">
 					<tr>
 						<td>${user.userName}</td>
 						<td>${user.name}</td>

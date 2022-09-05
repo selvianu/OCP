@@ -32,7 +32,6 @@ public class BookCtrller {
 			@RequestParam("mrpRate") int mrpRate, @RequestParam("file") MultipartFile img, Model model) throws IOException {
 		try {
 			int actPrice = mrpRate - 5;// calculate the actual rate of the book
-			System.out.println(img);
 			String path = "C:\\eclipse\\BookSalesMgmtSystem\\src\\main\\webapp\\images\\";
 			String filename = img.getOriginalFilename();
 			FileInputStream fin = new FileInputStream(path+filename);

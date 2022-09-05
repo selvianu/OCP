@@ -15,6 +15,13 @@ public class Orders {
 	private int totalPrice;
 	private int advanceAmt;
 	private String status;
+	private String emailId;
+	private String name;
+	private String phoneno;
+	private String address;
+	private String district;
+	private String state;
+	private int pincode;
 
 	public int getOrderId() {
 		return orderId;
@@ -78,6 +85,62 @@ public class Orders {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoneno() {
+		return phoneno;
+	}
+
+	public void setPhoneno(String phoneno) {
+		this.phoneno = phoneno;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
 	}
 
 }

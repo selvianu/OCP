@@ -12,9 +12,9 @@ import com.chainsys.BookSalesMgmtSystem.dao.BookDao;
 import com.chainsys.BookSalesMgmtSystem.dao.UserDoa;
 import com.chainsys.BookSalesMgmtSystem.model.Admin;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
+import com.chainsys.BookSalesMgmtSystem.model.Orders;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
 
-@Repository
 @Service
 public class AdminService {
 
@@ -60,6 +60,31 @@ public class AdminService {
 		return bkData;
 	}
 	
+	public List<Books> getNovels(){
+		List<Books> novels = bkdoa.getNovels();
+		return novels;
+	}
+	
+	public List<Books> getPoetry(){
+		List<Books> poetry = bkdoa.getPoetry();
+		return poetry;
+	}
+	
+	public List<Books> getHistory(){
+		List<Books> history = bkdoa.getHistory();
+		return history;
+	}
+	
+	public List<Books> getEducation(){
+		List<Books> educ = bkdoa.getEducation();
+		return educ;
+	}
+	
+	public List<Books> getBiography(){
+		List<Books> biography = bkdoa.getBiography();
+		return biography;
+	}
+	
 	public Books getBk(String id) {
 		Books bk = bkdoa.editBookDetails(id);
 		return bk;
@@ -83,5 +108,10 @@ public class AdminService {
 		else {
 			return false;
 		}
+	}
+	
+	public List<Orders> getOrders() {
+		List<Orders> odList = adoa.getOrderList();
+		return odList;
 	}
 }

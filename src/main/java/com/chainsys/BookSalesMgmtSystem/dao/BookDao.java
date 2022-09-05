@@ -17,7 +17,7 @@ public class BookDao {
 	JdbcTemplate temp;
 
 	public int addBooks(Books bk) {
-		String q = "insert into bookDetails(booksId, booksName, authors, publishers, edition, language, category, price, mrp_rate, "
+		String q = "insert into bookDetails(booksId, booksName, authors, publishers, edition, category, language, price, mrp_rate, "
 				+ "act_rate, avl_quantity, book_image) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		Object[] data = { bk.getBookId(), bk.getBookName(), bk.getAuthor(), bk.getPublisher(), bk.getEdition(),
 				bk.getCategory(), bk.getLanguage(), bk.getPrice(), bk.getMrpRate(), bk.getActPrice(),
@@ -31,10 +31,65 @@ public class BookDao {
 		List<Books> bkList = null;
 		try {
 			bkList = temp.query(q, new BookMapper());
+			return bkList;
 		}catch (Exception e) {
-			e.printStackTrace();
+			return null;
 		}
-		return bkList;
+	}
+	
+	public List<Books> getNovels(){
+		String q = "select * from bookdetails where category = 'Novel'";
+		List<Books> novelList = null;
+		try {
+			novelList = temp.query(q, new BookMapper());
+			return novelList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public List<Books> getPoetry(){
+		String q = "select * from bookdetails where category = 'Poetry'";
+		List<Books> PoetryList = null;
+		try {
+			PoetryList = temp.query(q, new BookMapper());
+			return PoetryList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public List<Books> getHistory(){
+		String q = "select * from bookdetails where category = 'History'";
+		List<Books> historyList = null;
+		try {
+			historyList = temp.query(q, new BookMapper());
+			return historyList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public List<Books> getEducation(){
+		String q = "select * from bookdetails where category = 'Education'";
+		List<Books> educList = null;
+		try {
+			educList = temp.query(q, new BookMapper());
+			return educList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public List<Books> getBiography(){
+		String q = "select * from bookdetails where category = 'Biography'";
+		List<Books> bioList = null;
+		try {
+			bioList = temp.query(q, new BookMapper());
+			return bioList;
+		}catch (Exception e) {
+			return null;
+		}
 	}
 	
 	public Books editBookDetails(String id) {

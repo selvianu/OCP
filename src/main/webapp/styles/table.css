@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+
+table {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+td, th {
+	text-align: left;
+	padding: 10px;
+}
+
+.center_col {
+	padding-left: 40px;
+}
+
+th {
+	background-color: #d68989;
+}
+
+tr:nth-child(odd) {
+	background-color: #ecc0c0;
+}

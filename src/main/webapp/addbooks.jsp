@@ -7,6 +7,7 @@
 <title>Add Books Page</title>
 <link rel="stylesheet" href="styles/user.css">
 <link rel="stylesheet" href="styles/addbooks.css">
+<link rel="stylesheet" href="styles/dropdown.css">
 </head>
 <body>
 <header>
@@ -22,8 +23,17 @@
 		<div class="menu">
 			<ul>
 				<li><a href="home.jsp">Home</a></li>
-				<li><a href="/Books">Books</a></li>
-				<li><a href="orders.jsp">Orders</a></li>
+				<li class="dropdown"><a href="Books" class="dropbtn">Books</a>
+					<div class="dropdown-content">
+    					<a href="Novels">Novels</a>
+    					<a href="Poetry">Poetry</a>
+    					<a href="History">History</a>
+    					<a href="Education">Education</a>
+    					<a href="Biography">Biography</a>
+    					<a href="Books">All Books</a>
+  					</div>
+				</li>
+				<li><a href="Orders">Orders</a></li>
 				<li><a href="Users">Users</a></li>
 				<li><a href="addbooks.jsp">Add Books</a></li>
 			</ul>

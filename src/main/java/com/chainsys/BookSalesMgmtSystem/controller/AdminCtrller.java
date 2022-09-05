@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.BookSalesMgmtSystem.model.Admin;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
+import com.chainsys.BookSalesMgmtSystem.model.Orders;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
 import com.chainsys.BookSalesMgmtSystem.service.AdminService;
 
@@ -43,16 +44,86 @@ public class AdminCtrller {
 	@GetMapping("/Users")
 	public String getUserList(Model model) {
 		List<Users> data = adservice.getUser();
-		model.addAttribute("data", data);
+		model.addAttribute("users", data);
 		return "users.jsp";
 	}
 	
 	@GetMapping("/Books")
 	public String getBookList(Model model) {
 		List<Books> data = adservice.getBooks();
-		model.addAttribute("data", data);
-		model.addAttribute("count", 0);
-		return "books.jsp";
+		if(data != null) {
+			model.addAttribute("books", data);
+			return "books.jsp";
+		}
+		else {
+			model.addAttribute("msg", "There is no Books are available now");
+			return "books.jsp";
+		}
+	}
+	
+	@GetMapping("/Novels")
+	public String getNovels(Model model) {
+		List<Books> novels = adservice.getNovels();
+		if(novels != null) {
+			model.addAttribute("books", novels);
+			return "books.jsp";
+		}
+		else {
+			model.addAttribute("msg", "There is no Books are available now");
+			return "books.jsp";
+		}
+	}
+	
+	@GetMapping("/Poetry")
+	public String getPoetry(Model model) {
+		List<Books> poetry = adservice.getPoetry();
+		if(poetry != null) {
+			model.addAttribute("books", poetry);
+			return "books.jsp";
+		}
+		else {
+			model.addAttribute("msg", "There is no Books are available now");
+			return "books.jsp";
+		}
+	}
+	
+	@GetMapping("/History")
+	public String getHistory(Model model) {
+		List<Books> history = adservice.getHistory();
+		if(history != null) {
+			model.addAttribute("books", history);
+			return "books.jsp";
+		}
+		else {
+			model.addAttribute("msg", "There is no Books are available now");
+			return "books.jsp";
+		}
+	}
+	
+	@GetMapping("/Education")
+	public String getEducation(Model model) {
+		List<Books> education = adservice.getEducation();
+		if(education != null) {
+			model.addAttribute("books",education);
+			return "books.jsp";
+		}
+		else {
+			model.addAttribute("msg", "There is no Books are available now");
+			return "books.jsp";
+		}
+	}
+	
+	@GetMapping("/Biography")
+	public String getBiography(Model model) {
+		List<Books> biography = adservice.getBiography();
+		if(biography != null) {
+			model.addAttribute("books", biography);
+			return "books.jsp";
+		}
+		else {
+			model.addAttribute("msg", "There is no Books are available now");
+			return "books.jsp";
+		}
 	}
 	
 	@GetMapping("/delete")
@@ -71,7 +142,6 @@ public class AdminCtrller {
 	public String updateBook(@RequestParam("bkid") String id, @RequestParam("bkname") String name, @RequestParam("authorname") String author,
 			@RequestParam("publisher") String pub, @RequestParam("edition") int edition,
 			@RequestParam("quantity") int qty, @RequestParam("price") int price, @RequestParam("mrpRate") int mrp, Model model) {
-		System.out.println("INside controller");
 		Books bk = new Books();
 		bk.setBookId(id);
 		bk.setBookName(name);
@@ -88,6 +158,19 @@ public class AdminCtrller {
 		else {
 			model.addAttribute("msg", "Some Unexpected Problem may occured. Please try again later!");
 			return "editbook.jsp";
+		}
+	}
+	
+	@GetMapping("/Orders")
+	public String getOrders(Model model) {
+		List<Orders> odList = adservice.getOrders();
+		if(odList != null) {
+			model.addAttribute("orderList", odList);
+			return "orders.jsp";
+		}
+		else {
+			model.addAttribute("msg", "No Orders available");
+			return "orders.jsp";
 		}
 	}
 }

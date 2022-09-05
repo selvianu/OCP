@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="styles/navbar.css">
 <link rel="stylesheet" href="styles/book.css">
 <link rel="stylesheet" href="styles/footer.css">
+<link rel="stylesheet" href="styles/dropdown.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <body>
 	<header>
@@ -26,8 +27,17 @@
 		<div class="menu">
 			<ul>
 				<li><a href="home.jsp">Home</a></li>
-				<li><a href="/Books">Books</a></li>
-				<li><a href="orders.jsp">Orders</a></li>
+				<li class="dropdown"><a href="Books" class="dropbtn">Books</a>
+					<div class="dropdown-content">
+    					<a href="Novels">Novels</a>
+    					<a href="Poetry">Poetry</a>
+    					<a href="History">History</a>
+    					<a href="Education">Education</a>
+    					<a href="Biography">Biography</a>
+    					<a href="Books">All Books</a>
+  					</div>
+				</li>
+				<li><a href="Orders">Orders</a></li>
 				<li><a href="Users">Users</a></li>
 				<li><a href="addbooks.jsp">Add Books</a></li>
 			</ul>
@@ -35,9 +45,9 @@
 	</nav>
 
 	<main>
-		<p>${msg }</p>
+		<p class="msg">${msg }</p>
 		<div class="books-container">
-			<c:forEach var="bk" items="${data}">
+			<c:forEach var="bk" items="${books}">
 				<div class="book-info">
 					<div>
 						<img alt="book cover page" src="data:image/jpg;base64,${bk.imagesPath}">
@@ -50,31 +60,31 @@
 							<div class="input-feild">
 								<label>Book ID</label>
 								<input type="text" name="bkid" value="${bk.bookId}" placeholder="Enter a id for the book" 
-								pattern="[A-Z]{2,4}[0-9]{3}" title="The book id should contain 1 to 4 alphabets and 3 numbers" required  class="inactive">
+								pattern="[A-Z]{2,4}[0-9]{3}" title="The book id should contain 1 to 4 alphabets and 3 numbers" required>
 							</div>
 				
 							<div class="input-feild">
 								<label>Book Name</label>
 								<input type="text" name="bkname" value="${bk.bookName}" placeholder="Enter the name of the book" required 
-								pattern="[A-Za-z\s.]{8,50}" title="PLease enter a proper book name" class="inactive">
+								pattern="[A-Za-z\s.]{8,50}" title="PLease enter a proper book name">
 							</div>
 				
 							<div class="input-feild">
 							<label>Author Name</label>
 							<input type="text" name="authorname" value="${bk.author}" placeholder="Enter the author name of the book" 
-								pattern="[A-Z]{1}[A-Za-z\s\,]{4,18}" title="Please enter a valid author name" required class="inactive">
+								pattern="[A-Z]{1}[A-Za-z\s\,]{4,18}" title="Please enter a valid author name" required>
 							</div>
 				
 							<div class="input-feild">
 							<label>Publisher</label>
 							<input type="text" name="publisher" value="${bk.publisher }" placeholder="Enter the publisher of the book"
-							 	pattern="[A-Z]{1}[A-Za-z\s]{4,50}" title="Please enter a valid publisher name" required class="inactive">
+							 	pattern="[A-Z]{1}[A-Za-z\s]{4,50}" title="Please enter a valid publisher name" required>
 							</div>
 							
 							<div class="input-feild">
 								<label>Edition</label>
 							<input type="text" name="edition" value="${bk.edition}" placeholder="Enter the edition of the book" 
-								pattern="[0-9]{1,2}" title="Please enter a valid edition number" class="inactive">
+								pattern="[0-9]{1,2}" title="Please enter a valid edition number">
 							</div>
 			
 							<div class="input-feild">
@@ -88,6 +98,12 @@
 							<input type="text" name="price" value="${bk.price }" placeholder="Enter the price of the book" 
 								pattern="[0-9]*" required class="inactive">
 							</div>
+							
+							<div class="input-feild">
+								<label>Actual Price</label>
+							<input type="text" name="price" value="${bk.actPrice }" placeholder="Enter the price of the book" 
+								pattern="[0-9]*" required class="inactive">
+							</div>
 			
 							<div class="input-feild">
 								<label>MRP Rate</label>
@@ -96,11 +112,15 @@
 							</div>
 
 							<div class="submit">
-								<input type="submit" name="Save" value="Save">
+								<input type="submit" name="Save" value="Save" onclick="disable(${bk.bookId})">
 							</div>
+							<!-- <div class="popup" id="popup">
+								<p>Do you want to delete this books</p>
+							</div> -->
 						</form>
 						<div class="btn">
 							<a href="/delete?id=${bk.bookId }"><button class="del">Delete</button></a>
+							<%-- <button class="del" onclick="popup(${bk.bookId})">Delete</button> --%>
 						</div>
 					</div>
 				</div>
@@ -133,6 +153,17 @@
 			console.log(cont.length);
 			for(let i = 0; i < cont.length; i++){
 				cont[i].classList.add('active');
+			}
+		}
+		
+		function disable(trigger){
+			console.log("Inside Function");
+			/* var text = document.getElementsByClassName('inactive')[10]; */
+			console.log(trigger);
+			var cont=trigger.querySelectorAll('.active');
+			console.log(cont.length);
+			for(let i = 0; i < cont.length; i++){
+				cont[i].classList.add('inactive');
 			}
 		}
 		
