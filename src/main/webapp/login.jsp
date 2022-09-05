@@ -17,17 +17,14 @@
 	<main>
 		<div class="staff">
 			<fieldset class="login-panel">
-				<legend>Staff Login</legend>
-				<form action="/stafflogin">
+				<legend>Admin Login</legend>
+				<form action="/adminlogin">
 					<div class="input-icon">
 						<i class="fa fa-user icon"></i> <input type="text"
 							placeholder="Enter Username" name="username" class="input-field" required>
 						<i class="fa fa-lock icon"></i> <input type="password"
 							placeholder="Enter a password" name="pwd" class="input-field" required>
-						<div class="button">
-							<a href="reset.jsp"><button>Reset</button></a>
 							<input type="submit" value="Login" class="login-staff" />
-						</div>
 					</div>
 				</form>
 			</fieldset>

@@ -1,9 +1,12 @@
 package com.chainsys.BookSalesMgmtSystem.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.chainsys.BookSalesMgmtSystem.mapper.UserMapper;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
 
 @Repository
@@ -55,6 +58,17 @@ public class UserDoa {
 		} catch (Exception e) {
 			return true;
 		}
+	}
+	
+	public List<Users> getUserList() {
+		String q = "select * from userDetails";
+		List<Users> users = null;
+		try {
+			users = temp.query(q, new UserMapper());
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return users;
 	}
 
 }

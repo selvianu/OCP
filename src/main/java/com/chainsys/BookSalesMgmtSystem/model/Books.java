@@ -16,6 +16,8 @@ public class Books {
 	private int mrpRate;
 	private int actPrice;
 	private int avlQuantity;
+	private byte[] image;
+	private String imagesPath;
 
 	public String getBookId() {
 		return bookId;
@@ -105,4 +107,21 @@ public class Books {
 		this.avlQuantity = avlQuantity;
 	}
 
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public String getImagesPath() {
+		return imagesPath;
+	}
+
+	public void setImagesPath(String imagesPath) {
+		this.imagesPath = imagesPath;
+	}
+
+	
 }

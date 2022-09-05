@@ -2,6 +2,9 @@ package com.chainsys.BookSalesMgmtSystem.model;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Orders {
 
 	private int orderId;

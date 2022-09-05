@@ -1,0 +1,113 @@
+@charset "ISO-8859-1";
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+.books-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	justify-content: space-around;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	row-gap: 10px;
+	column-gap: 10px;
+	width: 90%;
+}
+
+.book-info {
+	border: 1px solid rgb(128, 128, 128);
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	height: 500px;
+	padding: 15px 10px 15px 10px;
+}
+
+.book-info>div {
+	padding: 10px 10px 10px 10px;
+}
+
+.book-info>div>img {
+	height: 100%;
+	border-radius: 10px;
+	width: 100%;
+}
+
+.container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 400px;
+	height: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+	width: 100%;
+}
+
+.head {
+	display: grid;
+	grid-template-columns: 90% 10%;
+	width: 100%;
+}
+
+.head>i {
+	cursor: pointer;
+	float: right;
+}
+
+.input-feild {
+	display: grid;
+	grid-template-columns: 35% 70%;
+	gap: 3px;
+	height: 100%;
+	width: 100%;
+}
+
+input {
+	border: none;
+	height: 20px;
+	outline: none;
+}
+
+.submit {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.submit>input {
+	background-color: rgb(0, 153, 51);
+	border: none;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+	height: 30px;
+	outline: none;
+	width: 100%;
+}
+
+.btn>a>button {
+	background-color: rgb(153, 51, 0);
+	border: none;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+	height: 30px;
+	outline: none;
+	width: 100%;
+}
+
+.inactive {
+	pointer-events: none;
+}
+
+.active {
+	border-bottom: 2px solid black;
+	pointer-events: auto;
+}

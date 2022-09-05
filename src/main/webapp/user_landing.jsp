@@ -6,18 +6,18 @@
 <meta charset="ISO-8859-1">
 <title>user landing page</title>
 <link rel="stylesheet" href="styles/user.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/footer.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
 	<header>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="80px"
+			<li class="left"><img src="images/Mars.png" height="95px"
 				width="150px"></li>
 			<li>
 				<div class="search">
 					<input type="search"
-						placeholder="Search your favourite author books" name="author">
+						placeholder="Search your favourite books" name="author">
 					<a href="/searchByAuthor">
 						<button>
 							<i class="fa fa-search"></i>
@@ -27,25 +27,25 @@
 			</li>
 			<li class="profile"><a href="profile.jsp" class="right"><img
 					alt="profile" src="images/profile.png" width="70px" height="70px"></a></li>
+			<li class="profile"><a href="cart.jsp"><img alt="cart" src="images/cart.png" width="60px" height="60px"></a></li>
 		</ul>
 	</header>
 
-	<nav>
+	<nav id="nav">
 		<div class="catgry">
 			<ul>
 			<li><a href="home.jsp">Home</a></li>
-				<li><a href="literature.jsp">Literature</a></li>
+				<li><a href="biography.jsp">Biography</a></li>
 				<li><a href="education.jsp">Education</a></li>
 				<li><a href="novels.jsp">Novels</a></li>
 				<li><a href="poetry.jsp">Poetry</a></li>
-				<li><a href="comic.jsp">Comic</a></li>
+				<li><a href="history.jsp">History</a></li>
 			</ul>
 		</div>
 
 		<div class="history">
 			<ul>
 				<li><a href="history.jsp">History of Orders</a></li>
-				<li><a href="buy.jsp">Buy</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -89,7 +89,7 @@
 
 		<div class="books-container">
 			<div>
-				<img alt="wings of fire" src="images/wingsoffires.jpg" width="200px"
+				<img alt="wings of fire" src="images/WF123.jpg" width="200px"
 					height="300px">
 				<h4>Wings of Fire</h4>
 				<p>Book ID: WF123</p>
@@ -97,21 +97,21 @@
 			</div>
 
 			<div>
-				<img alt="wings of fire" src="images/wingsoffire-tamil.jpg">
+				<img alt="wings of fire" src="images/WF456.jpg">
 				<h4>Wings of Fire (Tamil)</h4>
 				<p>Book ID: WF456</p>
 				<a href="placeOrder.jsp"><button>Buy</button></a>
 			</div>
 
 			<div>
-				<img alt="Ponniyin Selvan" src="images/ponniyinselvan.jpg">
+				<img alt="Ponniyin Selvan" src="images/PS456.jpg">
 				<h4>Ponniyin Selvan (Tamil)</h4>
 				<p>Book ID: PS456</p>
 				<a href="placeOrder.jsp"><button>Buy</button></a>
 			</div>
 
 			<div>
-				<img alt="Quantitative Aptitude" src="images/education.jpg">
+				<img alt="Quantitative Aptitude" src="images/QA123.jpg">
 				<h4>Quantitative Aptitude (Fully Solved)</h4>
 				<p>Book ID: QA123</p>
 				<a href="placeOrder.jsp"><button>Buy</button></a>
@@ -142,6 +142,7 @@
 
 	<script>
 		let slideIndex = 0;
+		
 		showSlides();
 
 		function showSlides() {
@@ -156,6 +157,18 @@
 			}
 			slides[slideIndex - 1].style.display = "block";
 			setTimeout(showSlides, 2000); // Change image every 2 seconds
+		}
+
+		window.onscroll = function() {myFunction()};
+
+		var navbar = document.getElementById("nav");
+		var sticky = navbar.offsetTop;
+		function myFunction() {
+		  if (window.pageYOffset >= sticky) {
+		    navbar.classList.add("sticky")
+		  } else {
+		    navbar.classList.remove("sticky");
+		  }
 		}
 	</script>
 </body>

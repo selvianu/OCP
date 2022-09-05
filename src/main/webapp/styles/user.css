@@ -101,7 +101,8 @@ nav {
 	cursor: pointer;
 	height: 40px;
 	padding-top: 10px;
-	width: 150px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .menu li a {
@@ -132,6 +133,7 @@ nav {
 	align-items: stretch;
 	display: flex;
 	flex-direction: row;
+	text-align: right;
 	width: 33%;
 }
 
@@ -244,6 +246,23 @@ nav {
 	margin-left: 48%;
 }
 
+.addr {
+	color: white;
+	margin-top: 15px;
+}
+
+h1 {
+	color: maroon;
+	text-align: center;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
 table {
 	margin-top: 50px;
 	margin-left: auto;
@@ -254,7 +273,6 @@ table {
 td, th {
 	text-align: left;
 	padding: 10px;
-	/* width: 100px; */
 }
 
 .center_col {
@@ -267,32 +285,4 @@ th {
 
 tr:nth-child(odd) {
 	background-color: #ecc0c0;
-}
-
-footer {
-	background-color: rgb(166, 89, 89);
-	display: flex;
-	height: 100px;
-	justify-content: space-between;
-	margin-top: 50px;
-	padding-right: 50px;
-}
-
-footer ul {
-	display: flex;
-	flex-direction: column;
-}
-
-footer ul li {
-	text-align: left;
-}
-
-footer ul li a {
-	color: white;
-	font-size: 15px;
-}
-
-.addr {
-	color: white;
-	margin-top: 15px;
 }

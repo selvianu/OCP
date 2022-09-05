@@ -1,222 +1,141 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>user landing page</title>
-<link rel="stylesheet" href="styles/user.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<title>Administrator Page</title>
+<link rel="stylesheet" href="styles/navbar.css">
+<link rel="stylesheet" href="styles/book.css">
+<link rel="stylesheet" href="styles/footer.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <body>
 	<header>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="100px"
+			<li class="left"><img src="images/Mars.png" height="95px"
 				width="150px"></li>
-			<li>
-				<div class="search">
-					<input type="search"
-						placeholder="Search your favourite author books" name="author">
-					<a href="/searchByAuthor">
-						<button>
-							<i class="fa fa-search"></i>
-						</button>
-					</a>
-				</div>
-			</li>
-			<li class="profile"><a href="profile.jsp" class="right"><img
-					alt="profile" src="images/profile.png" width="70px" height="70px"></a></li>
+			<li class="profile"><img alt="profile" src="images/profile.png"
+				width="70px" height="70px"></li>
+			<li class="admin">Administrator</li>
 		</ul>
 	</header>
 
 	<nav>
-		<div class="catgry">
+		<div class="menu">
 			<ul>
 				<li><a href="home.jsp">Home</a></li>
-				<li><a href="literature.jsp">Literature</a></li>
-				<li><a href="education.jsp">Education</a></li>
-				<li><a href="novels.jsp">Novels</a></li>
-				<li><a href="poetry.jsp">Poetry</a></li>
-				<li><a href="comic.jsp">Comic</a></li>
-			</ul>
-		</div>
-
-		<div class="history">
-			<ul>
-				<li><a href="history.jsp">History of Orders</a></li>
-				<li><a href="buy.jsp">Buy</a></li>
+				<li><a href="/Books">Books</a></li>
+				<li><a href="orders.jsp">Orders</a></li>
+				<li><a href="Users">Users</a></li>
+				<li><a href="addbooks.jsp">Add Books</a></li>
 			</ul>
 		</div>
 	</nav>
 
 	<main>
-		<!-- <div class="slide-container">
-			<div class="slides">
-				<div class="text">
-					Mars Book Center<br>A massive collection of books with
-					affordable price in<br>various categories<br> <span>Buy!
-						and Enjoy!</span>
+		<p>${msg }</p>
+		<div class="books-container">
+			<c:forEach var="bk" items="${data}">
+				<div class="book-info">
+					<div>
+						<img alt="book cover page" src="data:image/jpg;base64,${bk.imagesPath}">
+					</div>
+					<div>
+						<form action="update" class="container" id="${bk.bookId }">
+							<div class="head"><h1>${bk.bookName}</h1>
+							<i style='font-size:20px' class='fas' onclick="enable(${bk.bookId})" class="test">&#xf304;</i>
+							</div>
+							<div class="input-feild">
+								<label>Book ID</label>
+								<input type="text" name="bkid" value="${bk.bookId}" placeholder="Enter a id for the book" 
+								pattern="[A-Z]{2,4}[0-9]{3}" title="The book id should contain 1 to 4 alphabets and 3 numbers" required  class="inactive">
+							</div>
+				
+							<div class="input-feild">
+								<label>Book Name</label>
+								<input type="text" name="bkname" value="${bk.bookName}" placeholder="Enter the name of the book" required 
+								pattern="[A-Za-z\s.]{8,50}" title="PLease enter a proper book name" class="inactive">
+							</div>
+				
+							<div class="input-feild">
+							<label>Author Name</label>
+							<input type="text" name="authorname" value="${bk.author}" placeholder="Enter the author name of the book" 
+								pattern="[A-Z]{1}[A-Za-z\s\,]{4,18}" title="Please enter a valid author name" required class="inactive">
+							</div>
+				
+							<div class="input-feild">
+							<label>Publisher</label>
+							<input type="text" name="publisher" value="${bk.publisher }" placeholder="Enter the publisher of the book"
+							 	pattern="[A-Z]{1}[A-Za-z\s]{4,50}" title="Please enter a valid publisher name" required class="inactive">
+							</div>
+							
+							<div class="input-feild">
+								<label>Edition</label>
+							<input type="text" name="edition" value="${bk.edition}" placeholder="Enter the edition of the book" 
+								pattern="[0-9]{1,2}" title="Please enter a valid edition number" class="inactive">
+							</div>
+			
+							<div class="input-feild">
+								<label>Quantity</label>
+							<input type="text" name="quantity" value="${bk.avlQuantity}" placeholder="Enter the available Quantity of the book" 
+								pattern="[0-9]*" required="required" class="inactive">
+							</div>
+			
+							<div class="input-feild">
+								<label>Price</label>
+							<input type="text" name="price" value="${bk.price }" placeholder="Enter the price of the book" 
+								pattern="[0-9]*" required class="inactive">
+							</div>
+			
+							<div class="input-feild">
+								<label>MRP Rate</label>
+							<input type="text" name="mrpRate" value="${bk.mrpRate }" placeholder="Enter the MRP price of the book" 
+								pattern="[0-9]*" required class="inactive">
+							</div>
+
+							<div class="submit">
+								<input type="submit" name="Save" value="Save">
+							</div>
+						</form>
+						<div class="btn">
+							<a href="/delete?id=${bk.bookId }"><button class="del">Delete</button></a>
+						</div>
+					</div>
 				</div>
-				<img alt="slide 1" src="images/bok.jpg" height="400px" width="100%">
-
-			</div>
-
-			<div class="slides">
-				<div class="text">
-					Only Cash on Delivery <br>is Available!
-				</div>
-				<img alt="cash on delivery" src="images/cashondevlry.jpg"
-					width="100%" height="400px" style="float: right;">
-			</div>
-
-			<div class="slides">
-				<div class="text">
-					Free Shipping Available<br> in Nationwide!
-				</div>
-				<img alt="discount" src="images/delivery.jpg" width="100%"
-					height="400px">
-
-			</div>
-
-			<a class="prev" onclick="plusDivs(-1)">&#10094;</a> <a class="next"
-				onclick="plusDivs(1)">&#10095;</a>
-		</div> -->
-
-		<table>
-        <thead>
-          <tr>
-            <th>Book id</th>
-            <th>Book Name</th>
-            <th>Author Name</th>
-            <th>Edition</th>
-            <th>Publisher</th>
-            <th>Subject</th>
-            <th>Price</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>WF123</td>
-            <td>Wings of Fire</td>
-            <td>ABJ.Abdul Kalam</td>
-            <td class="center_col">1</td>
-            <td>World University</td>
-            <td>Biography</td>
-            <td class="center_col">789</td>
-            <td class="center_col">788</td>
-          </tr>
-          <tr>
-            <td>HFJ123</td>
-            <td>Heart First Java</td>
-            <td>Bert Bates</td>
-            <td class="center_col">2</td>
-            <td>O'reilly</td>
-            <td>Computer Programming</td>
-            <td class="center_col">500</td>
-            <td class="center_col">278</td>
-          </tr>
-          <tr>
-            <td>HFJ124</td>
-            <td>Heart First Java</td>
-            <td>Kathy Seirra</td>
-            <td class="center_col">2</td>
-            <td>O'reilly</td>
-            <td>Computer Programming</td>
-            <td class="center_col">500</td>
-            <td class="center_col">271</td>
-          </tr>
-          <tr>
-            <td>CPL123</td>
-            <td>Concepts in Computer Programming</td>
-            <td>John C Mitchell</td>
-            <td class="center_col">1</td>
-            <td>Canbridge University</td>
-            <td>Computer Programming</td>
-            <td class="center_col">1000</td>
-            <td class="center_col">99</td>
-          </tr>
-          <tr>
-            <td>PYSM123</td>
-            <td>Power of Your Subconcious Mind</td>
-            <td>Joseph Murphy</td>
-            <td class="center_col">2</td>
-            <td>World University</td>
-            <td>Phycology</td>
-            <td class="center_col">250</td>
-            <td class="center_col">350</td>
-          </tr>
-          <tr>
-            <td>PYSM124</td>
-            <td>Power of Your Subconcious Mind</td>
-            <td>Joseph Murphy</td>
-            <td class="center_col">1</td>
-            <td>World University</td>
-            <td>Phycology</td>
-            <td class="center_col">250</td>
-            <td class="center_col">350</td>
-          </tr>
-          <tr>
-            <td>PS123</td>
-            <td>Ponniyin Selvan</td>
-            <td>Kalki Krishnamurthy</td>
-            <td class="center_col">1</td>
-            <td>Mangala Noolagam</td>
-            <td>Novel</td>
-            <td class="center_col">1200</td>
-            <td class="center_col">400</td>
-          </tr>
-          <tr>
-            <td>LSD123</td>
-            <td>A Love Story Destiny</td>
-            <td>Deesha Sangani</td>
-            <td class="center_col">1</td>
-            <td>Srihti Publisher</td>
-            <td>Fiction</td>
-            <td class="center_col">200</td>
-            <td class="center_col">150</td>
-          </tr>
-        </tbody>
-      </table>
+			</c:forEach>
+		</div>
 	</main>
-
 	<footer>
 		<div class="logo">
 			<img alt="logo" src="images/Mars.png" width="150px" height="100px">
 		</div>
 		<div>
 			<ul>
-				<li><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="tel:+6382639293">6382639293</a></li>
+				<li><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+					href="tel:+6382639293">6382639293</a></li>
 				<li><i class="fa fa-gmail">&#xf0e0;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="mailto:mars1234@gmail.com">mars1234@gmail.com</a>
+					<a href="mailto:mars1234@gmail.com">mars1234@gmail.com</a>
 			</ul>
 		</div>
 
 		<div class="addr">
-			12A, Middle Street,<br>Golden City,<br>Madurai,<br>Tamil
-			Nadu.
+			12A, Middle Street,<br>Golden City,<br>Madurai,<br>Tamil Nadu.
 		</div>
 	</footer>
-
-	<!-- <script>
-		let slideIndex = 0;
-		showSlides();
-
-		function showSlides() {
-			let i;
-			let slides = document.getElementsByClassName("slides");
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
+	<script type="text/javascript">
+		function enable(trigger){
+			console.log("Inside Function");
+			/* var text = document.getElementsByClassName('inactive')[10]; */
+			console.log(trigger);
+			var cont=trigger.querySelectorAll('.inactive');
+			console.log(cont.length);
+			for(let i = 0; i < cont.length; i++){
+				cont[i].classList.add('active');
 			}
-			slideIndex++;
-			if (slideIndex > slides.length) {
-				slideIndex = 1
-			}
-			slides[slideIndex - 1].style.display = "block";
-			setTimeout(showSlides, 2000); // Change image every 2 seconds
 		}
-	</script> -->
+		
+	</script>
 </body>
 </html>

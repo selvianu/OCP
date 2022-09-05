@@ -48,6 +48,7 @@ public class UserCtrller {
 		}
 	}
 	
+	
 	@GetMapping("/userlogin")
 	public String login(@RequestParam("username") String uname, @RequestParam("pwd") String pwd, Model model) {
 		

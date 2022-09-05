@@ -1,18 +1,19 @@
 package com.chainsys.BookSalesMgmtSystem.controller;
 
-import java.sql.Date;
-import java.time.LocalDate;
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.chainsys.BookSalesMgmtSystem.dao.BookDao;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
-import com.chainsys.BookSalesMgmtSystem.model.Employees;
-import com.chainsys.BookSalesMgmtSystem.model.Users;
 
 @Controller
 public class BookCtrller {
@@ -23,16 +24,20 @@ public class BookCtrller {
 	@Autowired
 	Books bk;
 
-	@GetMapping("/addBooks")
+	@PostMapping("/addBooks")
 	public String insertBooks(@RequestParam("bkid") String bookId, @RequestParam("bkname") String bookName,
 			@RequestParam("authorname") String author, @RequestParam("publisher") String publisher,
-			@RequestParam("category") String category, @RequestParam("language") String language,
-			@RequestParam("edition") int edition, @RequestParam("quantity") int quantity,
-			@RequestParam("price") int price, @RequestParam("mrpRate") int mrpRate, Model model) {
+			@RequestParam("category") String category, @RequestParam("lang") String language,
+			@RequestParam("edition") int edition, @RequestParam("quantity") int quantity,@RequestParam("price") int price, 
+			@RequestParam("mrpRate") int mrpRate, @RequestParam("file") MultipartFile img, Model model) throws IOException {
 		try {
 			int actPrice = mrpRate - 5;// calculate the actual rate of the book
-
-			// set all data of the book model
+			System.out.println(img);
+			String path = "C:\\eclipse\\BookSalesMgmtSystem\\src\\main\\webapp\\images\\";
+			String filename = img.getOriginalFilename();
+			FileInputStream fin = new FileInputStream(path+filename);
+			byte[] images = fin.readAllBytes();
+//			set all data of the book model
 			bk.setBookId(bookId);
 			bk.setBookName(bookName);
 			bk.setAuthor(author);
@@ -44,7 +49,7 @@ public class BookCtrller {
 			bk.setMrpRate(mrpRate);
 			bk.setActPrice(actPrice);
 			bk.setAvlQuantity(quantity);
-
+			bk.setImage(images);
 			// check whether the data are inserted or not
 
 			int f = bkdoa.addBooks(bk);
@@ -58,8 +63,5 @@ public class BookCtrller {
 			model.addAttribute("msg", "Some Unexpected Exception may occur");
 		}
 		return "addbooks.jsp";
-	}
-	
-	
-	
+	}	
 }

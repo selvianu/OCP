@@ -15,7 +15,6 @@
 
 
 			<li><a href="login.jsp">Login</a></li>
-			<li><a href="signin.jsp">Sign up</a></li>
 			<li><a href="Contactus.jsp">Contact us</a></li>
 			<li><a href="home.jsp">Home</a></li>
 		</ul>
