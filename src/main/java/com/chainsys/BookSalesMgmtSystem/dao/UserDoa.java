@@ -71,4 +71,17 @@ public class UserDoa {
 		return users;
 	}
 
+	public Users getUserById(String userName) {
+		String sql = "select * from usertable where userid = ?";
+		System.out.println(userName);
+		Users queryObj = null;
+		try {
+			queryObj = temp.queryForObject(sql, new UserMapper(), userName);
+			return queryObj;
+		}
+		catch (Exception e) {
+			return null;
+		}
+		
+	}
 }

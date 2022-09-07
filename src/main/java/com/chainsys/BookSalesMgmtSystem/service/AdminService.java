@@ -85,10 +85,10 @@ public class AdminService {
 		return biography;
 	}
 	
-	public Books getBk(String id) {
-		Books bk = bkdoa.editBookDetails(id);
-		return bk;
-	}
+//	public Books getBk(String id) {
+//		Books bk = bkdoa.editBookDetails(id);
+//		return bk;
+//	}
 	
 	public boolean updateBook(Books bk) {
 		int flag = bkdoa.updateBookDetails(bk);

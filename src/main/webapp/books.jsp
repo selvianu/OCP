@@ -59,32 +59,27 @@
 							</div>
 							<div class="input-feild">
 								<label>Book ID</label>
-								<input type="text" name="bkid" value="${bk.bookId}" placeholder="Enter a id for the book" 
-								pattern="[A-Z]{2,4}[0-9]{3}" title="The book id should contain 1 to 4 alphabets and 3 numbers" required>
+								<input type="text" name="bkid" value="${bk.bookId}" readonly>
 							</div>
 				
 							<div class="input-feild">
 								<label>Book Name</label>
-								<input type="text" name="bkname" value="${bk.bookName}" placeholder="Enter the name of the book" required 
-								pattern="[A-Za-z\s.]{8,50}" title="PLease enter a proper book name">
+								<input type="text" name="bkname" value="${bk.bookName}" readonly>
 							</div>
 				
 							<div class="input-feild">
 							<label>Author Name</label>
-							<input type="text" name="authorname" value="${bk.author}" placeholder="Enter the author name of the book" 
-								pattern="[A-Z]{1}[A-Za-z\s\,]{4,18}" title="Please enter a valid author name" required>
+							<input type="text" name="authorname" value="${bk.author}" readonly>
 							</div>
 				
 							<div class="input-feild">
 							<label>Publisher</label>
-							<input type="text" name="publisher" value="${bk.publisher }" placeholder="Enter the publisher of the book"
-							 	pattern="[A-Z]{1}[A-Za-z\s]{4,50}" title="Please enter a valid publisher name" required>
+							<input type="text" name="publisher" value="${bk.publisher }" readonly>
 							</div>
 							
 							<div class="input-feild">
 								<label>Edition</label>
-							<input type="text" name="edition" value="${bk.edition}" placeholder="Enter the edition of the book" 
-								pattern="[0-9]{1,2}" title="Please enter a valid edition number">
+							<input type="text" name="edition" value="${bk.edition}" readonly>
 							</div>
 			
 							<div class="input-feild">

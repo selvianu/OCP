@@ -27,7 +27,7 @@
 				A massive collection of Books with affordable price in various
 				categories<br> <span>Buy! and Enjoy!</span>
 			</p>
-			<a href="user_landing.jsp"><button>Discover</button></a>
+			<a href="user"><button>Discover</button></a>
 		</div>
 	</div>
 

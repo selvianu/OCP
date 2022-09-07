@@ -1,7 +1,11 @@
 package com.chainsys.BookSalesMgmtSystem.dao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -92,15 +96,29 @@ public class BookDao {
 		}
 	}
 	
-	public Books editBookDetails(String id) {
+	public List<Books> getTopSaledBooks(){
+		String q = "select booksid from (SELECT booksid, COUNT(*)"
+				+ "FROM orderhistory GROUP BY booksid ORDER BY booksid) WHERE ROWNUM <= 3";
+		List<String> topBooks = null;
+		try {
+			topBooks = temp.queryForList(q, String.class);
+			List<Books> topookList = topBooks.stream().map(bk -> getBookById(bk)).collect(Collectors.toList());
+			return topookList;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public Books getBookById(String bkId) {
 		String q = "select * from bookdetails where booksid = ?";
 		Books bk = null;
 		try {
-			bk = temp.queryForObject(q, new BookMapper(), id);			
+			bk = temp.queryForObject(q, new BookMapper(), bkId);
+			return bk;
 		}catch (Exception e) {
-			System.out.println("Exception");
+			return null;
 		}
-		return bk;
 	}
 	
 	public int updateBookDetails(Books bk) {

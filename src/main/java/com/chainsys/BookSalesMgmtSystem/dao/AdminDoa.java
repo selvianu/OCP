@@ -23,7 +23,6 @@ public class AdminDoa {
 	Admin adm;
 	
 	public Admin adminLogin(String uname, String pwd) {
-		System.out.println("Inside DOA");
 		String q = "select * from admin";
 		Admin info = null;
 		try {
