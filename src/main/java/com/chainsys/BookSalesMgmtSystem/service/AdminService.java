@@ -109,4 +109,14 @@ public class AdminService {
 		List<Books> topBooks = bookDoa.getTopSaledBooks();
 		return topBooks;
 	}
+	
+	public List<Books> getLowQuantityBooks(){
+		List<Books> bookList = bookDoa.getLowQuantityBooks();
+		return bookList;
+	}
+	
+	public List<Users> getTopBuyers(){
+		List<Users> userList = userDoa.getTopBuyers();
+		return userList;
+	}
 }

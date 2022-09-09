@@ -134,4 +134,19 @@ public class UserService {
 		List<Books> searchBooks = bookDao.searchBooks(keyword);
 		return searchBooks;
 	}
+	
+	public List<Books> getBooksByLanguage(String language){
+		List<Books> bookList = bookDao.getBookByLanguage(language);
+		return bookList;
+	}
+	
+	public List<Books> getBooksByPrice(int fromRate, int toRate){
+		List<Books> bookList = bookDao.getBookByPrice(fromRate, toRate);
+		return bookList;
+	}
+	
+	public List<Books> getBooksByAuthor(String author){
+		List<Books> bookList = bookDao.getBookByAuthor(author);
+		return bookList;
+	}
 }

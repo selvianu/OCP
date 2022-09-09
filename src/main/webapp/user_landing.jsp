@@ -42,12 +42,6 @@
 				<li><a href="getAllBooks">All</a></li>
 			</ul>
 		</div>
-
-		<!-- <div class="history">
-			<ul>
-				<li><a href="history.jsp">History of Orders</a></li>
-			</ul>
-		</div> -->
 	</nav>
 
 	<main>
@@ -58,7 +52,7 @@
 					affordable price in<br>various categories<br> <span>Buy!
 						and Enjoy!</span>
 				</div>
-				<img alt="slide 1" src="images/bok.jpg" height="400px" width="100%">
+				<img alt="slide 1" src="images/bok.jpg" height="350px" width="100%">
 
 			</div>
 
@@ -67,7 +61,7 @@
 					Only Cash on Delivery <br>is Available!
 				</div>
 				<img alt="cash on delivery" src="images/cashondevlry.jpg"
-					width="100%" height="400px" style="float: right;">
+					width="100%" height="350px" style="float: right;">
 			</div>
 
 			<div class="slides">
@@ -75,7 +69,7 @@
 					Free Shipping Available<br> in Nationwide!
 				</div>
 				<img alt="discount" src="images/delivery.jpg" width="100%"
-					height="400px">
+					height="350px">
 
 			</div>
 
@@ -90,15 +84,18 @@
 		<div class="books-container">
 			<c:forEach var="book" items="${topBooks}" varStatus="loop">
 				<c:if test = "${loop.index < 4}">
-					<div>
-						<div class="details">
-							<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="200px"
-								height="300px">
-							<h3>${book.bookName }</h3>
-							<h4>Rs.${book.actualPrice }</h4>
+					<div class="book-info">
+							<div class="img">
+								<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="100%" height="270px">
+								<h3>${book.bookName }</h3>
+							</div>
+							<div class="details">
+								<h4>Rs.${book.actualPrice }</h4>
+							</div>
+							<div class="view-btn">
+								<a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a>
+							</div>
 						</div>
-						<div class="view-btn"><a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a></div>
-					</div>
 				</c:if>
 			</c:forEach>
 		</div>

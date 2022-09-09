@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.BookSalesMgmtSystem.mapper.BookMapper;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
+import com.chainsys.BookSalesMgmtSystem.model.Users;
 
 @Repository
 public class BookDao {
@@ -94,7 +95,7 @@ public class BookDao {
 	
 	public List<Books> getTopSaledBooks(){
 		String selectTopSaledBooks = "select booksid from (SELECT booksid, COUNT(*)"
-				+ "FROM orderhistory GROUP BY booksid ORDER BY booksid) WHERE ROWNUM <= 3";
+				+ "FROM orderhistory GROUP BY booksid ORDER BY booksid) WHERE ROWNUM <= 4";
 		List<String> topBooks = null;
 		try {
 			topBooks = jdbcTemplate.queryForList(selectTopSaledBooks, String.class);
@@ -186,5 +187,50 @@ public class BookDao {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	//
+	public List<Books> getBookByLanguage(String language){
+		String selectBookByLang = "slect * from bookdetails where language = ?";
+		List<Books> bookList = null;
+		try {
+			bookList = jdbcTemplate.query(selectBookByLang, new BookMapper(), language);
+			return bookList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public List<Books> getBookByAuthor(String author){
+		String selectBookByAuthor = "slect * from bookdetails where author = ?";
+		List<Books> bookList = null;
+		try {
+			bookList = jdbcTemplate.query(selectBookByAuthor, new BookMapper(), author);
+			return bookList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public List<Books> getBookByPrice(int fromRate, int toRate){
+		String selectBookByPrice = "select * from bookdetails where act_rate BETWEEN ? and ?";
+		List<Books> bookList = null;
+		try {
+			bookList = jdbcTemplate.query(selectBookByPrice, new BookMapper(), fromRate, toRate);
+			return bookList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public List<Books> getLowQuantityBooks(){
+		String selectBookByQuantity = "select * from bookdetails where avl_quantity < 15";
+		List<Books> bookList = null;
+		try {
+			bookList = jdbcTemplate.query(selectBookByQuantity, new BookMapper());
+			return bookList;
+		}catch (Exception e) {
+			return null;
+		}
 	}
 }

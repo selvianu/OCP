@@ -192,11 +192,11 @@ public class UserCtrller {
 	@GetMapping("/getBooks")
 	public String getBuys(@RequestParam("id") String bkId, @RequestParam("cat") String category, Model model) {
 		Books books = userService.getBookById(bkId);
-		List<Books> categoryBooks = userService.getBookBycategory(category);
+		List<Books> relatedBooks = userService.getBookBycategory(category);
 		List<Books> topBooks = userService.getTopBooks();
 		model.addAttribute("book", books);
 		model.addAttribute("topBooks", topBooks);
-		model.addAttribute("relatedBook", categoryBooks);
+		model.addAttribute("relatedBook", relatedBooks);
 		return "viewbook.jsp";
 	}
 	

@@ -85,7 +85,7 @@
 					</div>
 					<div class="btn">
 						<a href="/deletecart?id=${ct.cartId }"><button class="cart">Remove</button></a>
-						<a href="#"><button class="order">Order</button></a>
+						<a href="/getOrders?id=${book.bookId}"><button class="order">Order</button></a>
 					</div>
 				</div>
 			</div>

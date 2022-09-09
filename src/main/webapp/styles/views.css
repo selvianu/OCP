@@ -1,10 +1,10 @@
 @charset "ISO-8859-1";
 
-.book-info {
+.viewed-book {
 	border: 1px solid grey;
 	display: grid;
-	grid-template-columns: 30% 70%;
-	gap: 50px;
+	grid-template-columns: 30% 65%;
+	gap: 5%;
 	height: auto; margin-left : auto;
 	margin-right: auto;
 	margin-top: 50px;
@@ -13,29 +13,41 @@
 }
 
 .imgdiv {
-	border-right: 1px solid grey;
 	padding: 10px 20px 10px 10px;
 	height: 350px;
 }
 
-.book-info>div>img {
+.viewed-book>div>img {
+	border: 0.5px solid gray;
 	height: 100%;
 	width: 100%;
 }
 
-h1, h3 {
+.topics>h1, .topics>h4 {
+	line-height: 50px;
+	margin-bottom: 0;
+	margin-top: 0;
 	text-align: center;
 }
 
 .head {
+	border-bottom: 1px solid gray;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 20px;
 }
 
-.head>div {
-	display: grid;
-	grid-template-columns: 20% 80%;
-	line-height: 40px;
+.topics {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.info{
+	display: flex;
+	font-size: 20px;
+	justify-content: flex-start;
+	margin-bottom: 20px;
 }
 
 .label {
@@ -80,4 +92,25 @@ h1, h3 {
 .msg{
 	color: blue;
 	text-align: center;
+}
+
+.star-rating {
+  line-height:32px;
+  font-size:1.25em;
+}
+
+.star-rating .fa-star{color: yellow;}
+
+.review-panel{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-bottom: 20px;
+	width: 80%;	
+}
+
+.review{
+	align-items: center;
+	font-size: 18px;
+	display: flex;	
+	text-decoration: none;
 }

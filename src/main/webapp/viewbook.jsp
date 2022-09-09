@@ -7,10 +7,11 @@
 <meta charset="ISO-8859-1">
 <title>View Books</title>
 <link rel="stylesheet" href="styles/navbar.css">
-<link rel="stylesheet" href="styles/footer.css">
-<link rel="stylesheet" href="styles/views.css">
+<link rel="stylesheet" href="styles/footer.css"> 
 <link rel="stylesheet" href="styles/user.css">
+<link rel="stylesheet" href="styles/views.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<header>
@@ -45,41 +46,35 @@
 		</nav>
 	</header>
 	<main>
-		<div class="book-info">
+		<div class="viewed-book">
 			<div class="imgdiv">
 				<img alt="book cover page" src="data:image/jpg;base64,${book.imagesPath}">
 			</div>
 			<div>
 				<div class="container">
 					<div class="head">
-						<h1><i>${book.bookName }</i></h1>
-						<div>
-							<div class="label">Author</div>
-							<div>${book.author }</div>
+						<div class="topics">
+							<h1><i>${book.bookName }</i></h1>
+							<h4>by ${book.author } (Author) | ${book.publisher} (Publisher)</h4>
 						</div>
-						<div>
-							<div class="label">Publisher</div>
-							<div>${book.publisher}</div>
+						
+						<div class="info">
+							<c:if test =  "${book.edition > 0 }">
+								<div>Edition : ${book.edition }</div>
+							</c:if>
+							<div>Category : ${book.category}</div>
 						</div>
-						<c:if test =  "${book.edition > 0 }">
-							<div>
-								<div class="label">Edition</div>
-								<div>${book.edition }</div>
-							</div>
-						</c:if>
-						<div>
-							<div class="label">Category</div>
-							<div>${book.category}</div>
+							
+						<div class="price-container">
+							<div><h2><span><em>Rs.</em></span>${book.actualPrice }</h2></div>
+							<div><p class="msg">${msg }</p></div>
 						</div>
 					</div>
 					
-					<div class="price-container">
-						<div><h2><span><em>Rs.</em></span>${book.actualPrice }</h2></div>
-						<div><p class="msg">${msg }</p></div>
-					</div>
 					<div class="btn">
 						<a href="/addtocart?id=${book.bookId }&cat=${book.category}"><button class="cart">Add to cart</button></a>
 						<a href="/getOrders?id=${book.bookId}"><button class="order">Order</button></a>
+						<a href="#" class="review">Write Review</a>
 					</div>
 				</div>
 			</div>
@@ -124,6 +119,18 @@
 				</c:if>
 			</c:forEach>
 		</div>
+		
+		<div class="review-panel">
+			<div class="star-rating">
+				<span class="rate-label">Rating :</span>
+       			<span class="fa fa-star-o" data-rating="1"></span>
+        		<span class="fa fa-star-o" data-rating="2"></span>
+       			<span class="fa fa-star-o" data-rating="3"></span>
+        		<span class="fa fa-star-o" data-rating="4"></span>
+       			<span class="fa fa-star-o" data-rating="5"></span>
+     			<input type="hidden" name="whatever1" class="rating-value" value="0.0">
+			</div>
+		</div>
 	</main>
 	
 	<footer>
@@ -145,5 +152,30 @@
 		</div>
 	</footer>
 	
+	<script type="text/javascript">
+	var $star_rating = $(".star-rating .fa");
+
+	var SetRatingStar = function () {
+	  return $star_rating.each(function () {
+	    if (
+	      parseInt($star_rating.siblings("input.rating-value").val()) >=
+	      parseInt($(this).data("rating"))
+	    ) {
+	      return $(this).removeClass("fa-star-o").addClass("fa-star");
+	    } else {
+	      return $(this).removeClass("fa-star").addClass("fa-star-o");
+	    }
+	  });
+	};
+
+	$star_rating.on("click", function () {
+	  $star_rating.siblings("input.rating-value").val($(this).data("rating"));
+	  return SetRatingStar();
+	});
+
+	SetRatingStar();
+	$(document).ready(function () {});
+
+	</script>	
 </body>
 </html>

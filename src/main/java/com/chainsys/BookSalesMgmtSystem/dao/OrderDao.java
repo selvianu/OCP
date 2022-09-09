@@ -7,9 +7,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.BookSalesMgmtSystem.mapper.CartMapper;
+import com.chainsys.BookSalesMgmtSystem.mapper.OrderMapper;
 import com.chainsys.BookSalesMgmtSystem.model.Cart;
 import com.chainsys.BookSalesMgmtSystem.model.CartDetails;
 import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
+import com.chainsys.BookSalesMgmtSystem.model.Rating;
 
 @Repository
 public class OrderDao {
@@ -70,7 +72,59 @@ public class OrderDao {
 			return noOfRowsAffected;
 		}catch (Exception e) {
 			return 0;
+		}		
+	}
+	
+	public int getNumberOfREviewers(String bookId) {
+		String getReviewerCount = "Select count(username)From bookreviews Where bookid = ? Group by bookid";
+		try {
+			int reviewerCount = jdbcTemplate.queryForObject(getReviewerCount, int.class, bookId);
+			return reviewerCount;
+		}catch (Exception e) {
+			return 0;
 		}
-		
+	}
+	
+	public int getSumOfRating(String bookId) {
+		String sumRatings = "select sum(rating) from bookreviews where bookid = ?";
+		try {
+			int sumOfRating = jdbcTemplate.queryForObject(sumRatings, int.class);
+			return sumOfRating;
+			
+		}catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	public int updateBookRating(String bookId, int rating) {
+		String updateRating = "update bookdetails SET rating = ? where booksid = ?";
+		try {
+			int noOfRowsAffected = jdbcTemplate.update(updateRating, rating, bookId);
+			return noOfRowsAffected;
+		}catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	public int addRating(Rating rating) {
+		String insertRating = "insert into bookreviews(bookid, username, review, rating)values(?, ?, ?, ?)";
+		Object[] ratingInfo = {rating.getBookId(), rating.getUserName(), rating.getRating(), rating.getReview()};
+		try {
+			int noOfRowsAffected = jdbcTemplate.update(insertRating, ratingInfo);
+			return noOfRowsAffected;
+		}catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	public List<OrdersDetails> getOrdersById(String userName){
+		String selectOrders = "select * from orderhistory where username = ?";
+		List<OrdersDetails> orderList = null;
+		try {
+			orderList = jdbcTemplate.query(selectOrders, new OrderMapper(), userName);
+			return orderList;
+		}catch (Exception e) {
+			return null;
+		}
 	}
 }

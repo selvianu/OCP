@@ -106,7 +106,17 @@ public class UserDao {
 		}
 		catch (Exception e) {
 			return 0;
+		}	
+	}
+	
+	public List<Users> getTopBuyers(){
+		String selectTopUser = "select username from(select username, sum(quantity) from orderhistory GROUP BY username ORDER by username desc)where ROWNUM <= 5";
+		List<Users> userList = null;
+		try {
+			userList = jdbcTemplate.query(selectTopUser, new UserMapper());
+			return userList;
+		}catch (Exception e) {
+			return null;
 		}
-		
 	}
 }
