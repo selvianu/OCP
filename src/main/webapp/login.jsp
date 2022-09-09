@@ -42,10 +42,12 @@
 						<input type="submit" value="Login" class="login" />
 					</div>
 				</form>
+				
+				<a href="forgotpassword.jsp"><i>forgot password?</i></a>
 
 				<p>If you are new User</p>
 
-				<a href="signin.jsp"><input type="button" value="Sign in"
+				<a href="signin.jsp"><input type="button" value="Sign "
 					class="signin" /></a>
 			</fieldset>
 		</div>

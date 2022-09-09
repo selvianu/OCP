@@ -3,7 +3,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 main {
@@ -13,7 +13,7 @@ main {
 	background-size: cover;
 	display: flex;
 	justify-content: center;
-	height: 550px;
+	height: 600px;
 	width: 100%;
 }
 
@@ -22,57 +22,69 @@ main {
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 20px;
 	display: flex;
-	height: 300px;
+	height: auto;
 	justify-content: center;
 	margin-left: auto;
+	line-height: 2;
 	margin-right: auto;
 	padding: 20px 20px 20px 20px;
-	width: 30%;
+	width: 50%;
 }
 
 form {
 	color: #e6f2ff;
 	font-size: 25px;
 	display: grid;
-	grid-template-columns: 30% 70%;
+	grid-template-columns: 30% 65%;
+	column-gap: 5%;
 	height: 80%;
 	width: 100%;
 }
 
-.bill-form-container{
+.bill-form-container {
 	color: #e6f2ff;
-    font-size: 25px;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    height: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+	font-size: 25px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	height: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
 }
-input{
+
+input {
 	outline: none;
 	height: 40px;
 	width: 100%;
 }
 
-input[type="submit"], button{
+input[type="submit"], button {
 	border: none;
 	cursor: pointer;
 	height: 40px;
-} 
+}
 
-input[type="submit"], .buy{
+input[type="submit"], .buy, a>button {
+	color: white;
+	margin-top: 20px;
 	width: 100%;
+}
+
+input[type="submit"], .buy {
 	background-color: rgb(0, 153, 51);
 }
 
-.cancel{
+a>button {
+	background-color: rgb(153, 51, 0);
+}
+
+.cancel {
 	width: 70%;
 	background-color: rgb(204, 0, 0);
 }
 
-
-
-footer {
-	margin-top: 0;
+#alert-msg {
+	color: red; 
+	font-size: 15px;
+	visibility: hidden;
 }

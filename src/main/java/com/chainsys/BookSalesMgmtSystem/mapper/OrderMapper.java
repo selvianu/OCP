@@ -7,12 +7,12 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.chainsys.BookSalesMgmtSystem.model.Orders;
+import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
 
-public class OrderMapper implements RowMapper<Orders>{
+public class OrderMapper implements RowMapper<OrdersDetails>{
 
 	@Override
-	public Orders mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public OrdersDetails mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		int ordreId = rs.getInt("orderid");
 		String bkId = rs.getString("booksId");
@@ -30,14 +30,14 @@ public class OrderMapper implements RowMapper<Orders>{
 		String state = rs.getString("state");
 		int pincode = rs.getInt("pincode");
 		
-		Orders od = new Orders();
+		OrdersDetails od = new OrdersDetails();
 		od.setOrderId(ordreId);
 		od.setBookId(bkId);
 		od.setUserName(usname);
 		od.setOrderDate(orderDate);
 		od.setQuantity(qty);
 		od.setTotalPrice(price);
-		od.setAdvanceAmt(adAmt);
+		od.setAdvanceAmount(adAmt);
 		od.setStatus(status);
 		od.setName(name);
 		od.setEmailId(email);

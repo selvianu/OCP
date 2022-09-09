@@ -36,10 +36,10 @@ public class BookMapper implements RowMapper<Books>{
 		bk.setCategory(category);
 		bk.setPrice(price);
 		bk.setMrpRate(mrpRate);
-		bk.setActPrice(actRate);
-		bk.setAvlQuantity(qty);
+		bk.setActualPrice(actRate);
+		bk.setAvailableQuantity(qty);
 		bk.setLanguage(lang);
-		bk.setImage(images);
+		bk.setBookImage(images);
 		bk.setImagesPath(base64Image);
 		return bk;		
 	}

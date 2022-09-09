@@ -16,7 +16,7 @@
 	<p style="color: red; text-align: center;">${msg}</p>
 	<fieldset class="panel">
 		<legend>Sign in</legend>
-		<form action="/signin">
+		<form action="/signup">
 			<div class="input-icon">
 				<i class="fa fa-user icon"></i> <input type="text"
 					placeholder="Enter Username" name="username" class="input-field" pattern="[A-Za-z0-9]{5,15}"
@@ -25,17 +25,31 @@
 					placeholder="Enter your email id" name="email" class="input-field" required pattern="[a-z0-9._%+-]+@gmail+\.com"> <i
 					class="fa fa-lock icon"></i> <input type="password"
 					placeholder="Enter a password" name="pwd" class="input-field" 
-					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required id="pwd"
   					title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
-				<input type="submit" value="Sign in" class="signin" />
+  				<div class="show">
+  					<input type="checkbox" onclick="myFunction()">
+					<label>Show Password</label>
+  				</div>
+				<input type="submit" value="Sign up" class="signin" />
 			</div>
 		</form>
 
-		<p>If you already signed please login</p>
+		<p>If your already a existing user?</p>
 
 		<a href="login.jsp"><input type="button" value="login"
 			class="login" /></a>
 	</fieldset>
 
+<script type="text/javascript">
+function myFunction() {
+	  var x = document.getElementById("pwd");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+   </script>
 </body>
 </html>

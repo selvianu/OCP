@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,102 +43,22 @@
 	</nav>
 	
 	<main>
-	<table>
-        <thead>
-          <tr>
-            <th>Book id</th>
-            <th>Book Name</th>
-            <th>Author Name</th>
-            <th>Edition</th>
-            <th>Publisher</th>
-            <th>Subject</th>
-            <th>Price</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>WF123</td>
-            <td>Wings of Fire</td>
-            <td>ABJ.Abdul Kalam</td>
-            <td class="center_col">1</td>
-            <td>World University</td>
-            <td>Biography</td>
-            <td class="center_col">789</td>
-            <td class="center_col">788</td>
-          </tr>
-          <tr>
-            <td>HFJ123</td>
-            <td>Heart First Java</td>
-            <td>Bert Bates</td>
-            <td class="center_col">2</td>
-            <td>O'reilly</td>
-            <td>Computer Programming</td>
-            <td class="center_col">500</td>
-            <td class="center_col">278</td>
-          </tr>
-          <tr>
-            <td>HFJ124</td>
-            <td>Heart First Java</td>
-            <td>Kathy Seirra</td>
-            <td class="center_col">2</td>
-            <td>O'reilly</td>
-            <td>Computer Programming</td>
-            <td class="center_col">500</td>
-            <td class="center_col">271</td>
-          </tr>
-          <tr>
-            <td>CPL123</td>
-            <td>Concepts in Computer Programming</td>
-            <td>John C Mitchell</td>
-            <td class="center_col">1</td>
-            <td>Canbridge University</td>
-            <td>Computer Programming</td>
-            <td class="center_col">1000</td>
-            <td class="center_col">99</td>
-          </tr>
-          <tr>
-            <td>PYSM123</td>
-            <td>Power of Your Subconcious Mind</td>
-            <td>Joseph Murphy</td>
-            <td class="center_col">2</td>
-            <td>World University</td>
-            <td>Phycology</td>
-            <td class="center_col">250</td>
-            <td class="center_col">350</td>
-          </tr>
-          <tr>
-            <td>PYSM124</td>
-            <td>Power of Your Subconcious Mind</td>
-            <td>Joseph Murphy</td>
-            <td class="center_col">1</td>
-            <td>World University</td>
-            <td>Phycology</td>
-            <td class="center_col">250</td>
-            <td class="center_col">350</td>
-          </tr>
-          <tr>
-            <td>PS123</td>
-            <td>Ponniyin Selvan</td>
-            <td>Kalki Krishnamurthy</td>
-            <td class="center_col">1</td>
-            <td>Mangala Noolagam</td>
-            <td>Novel</td>
-            <td class="center_col">1200</td>
-            <td class="center_col">400</td>
-          </tr>
-          <tr>
-            <td>LSD123</td>
-            <td>A Love Story Destiny</td>
-            <td>Deesha Sangani</td>
-            <td class="center_col">1</td>
-            <td>Srihti Publisher</td>
-            <td>Fiction</td>
-            <td class="center_col">200</td>
-            <td class="center_col">150</td>
-          </tr>
-        </tbody>
-      </table>
+	<div><h1>Top Searched Books</h1></div>
+		<div class="books-container">
+			<c:forEach var="book" items="${topBooks}" varStatus="loop">
+				<c:if test = "${loop.index < 4}">
+					<div>
+						<div class="details">
+							<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="200px"
+								height="300px">
+							<h3>${book.bookName }</h3>
+							<h4>Rs.${book.actualPrice }</h4>
+						</div>
+						<div class="view-btn"><a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a></div>
+					</div>
+				</c:if>
+			</c:forEach>
+		</div>
 	</main>
 </body>
 </html>

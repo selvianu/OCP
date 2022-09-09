@@ -5,7 +5,7 @@ import java.sql.Date;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class Orders {
+public class OrdersDetails {
 
 	private int orderId;
 	private String bookId;
@@ -13,7 +13,7 @@ public class Orders {
 	private Date orderDate;
 	private int quantity;
 	private int totalPrice;
-	private int advanceAmt;
+	private int advanceAmount;
 	private String status;
 	private String emailId;
 	private String name;
@@ -71,12 +71,12 @@ public class Orders {
 		this.totalPrice = totalPrice;
 	}
 
-	public int getAdvanceAmt() {
-		return advanceAmt;
+	public int getAdvanceAmount() {
+		return advanceAmount;
 	}
 
-	public void setAdvanceAmt(int advanceAmt) {
-		this.advanceAmt = advanceAmt;
+	public void setAdvanceAmount(int advanceAmount) {
+		this.advanceAmount = advanceAmount;
 	}
 
 	public String getStatus() {

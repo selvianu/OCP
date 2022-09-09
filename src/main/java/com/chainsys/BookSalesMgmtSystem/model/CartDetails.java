@@ -10,8 +10,8 @@ public class CartDetails {
 	private int edition;
 	private String category;
 	private int price;
-	private byte[] image;
-	private String bkImages;
+	private byte[] bookImage;
+	private String bookImages;
 
 	public int getCartId() {
 		return cartId;
@@ -76,21 +76,21 @@ public class CartDetails {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
-	public byte[] getImage() {
-		return image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-
+	
 	public String getBkImages() {
-		return bkImages;
+		return bookImages;
 	}
 
-	public void setBkImages(String bkImages) {
-		this.bkImages = bkImages;
+	public void setBkImages(String bookImages) {
+		this.bookImages = bookImages;
+	}
+
+	public byte[] getBookImage() {
+		return bookImage;
+	}
+
+	public void setBookImage(byte[] bookImage) {
+		this.bookImage = bookImage;
 	}
 
 }

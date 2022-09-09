@@ -7,8 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Cart page</title>
 <link rel="stylesheet" href="styles/navbar.css">
-<link rel="stylesheet" href="styles/footer.css">
-<link rel="stylesheet" href="styles/cart.css">
+<link rel="stylesheet" href="styles/views.css">
 <link rel="stylesheet" href="styles/user.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
@@ -38,7 +37,7 @@
 		<nav id="nav">
 		<div class="catgry">
 			<ul>
-			<li><a href="home.jsp">Home</a></li>
+			<li><a href="userBooks">Home</a></li>
 				<li><a href="userBiography">Biography</a></li>
 				<li><a href="userEducation">Education</a></li>
 				<li><a href="userNovels">Novels</a></li>
@@ -51,7 +50,7 @@
 	</header>
 
 	<main>
-		<div><p class="msg">${msg }</p></div>
+		<div><p class="msg">${msg }</p></div> 
 	<c:forEach var="ct" items="${carts}">
 		<div class="book-info">
 			<div class="imgdiv">
@@ -75,6 +74,10 @@
 								<div>${ct.edition }</div>
 							</div>
 						</c:if>
+						<div>
+							<div class="label">Category</div>
+							<div>${book.category}</div>
+						</div>
 					</div>
 					
 					<div class="price-container">
@@ -89,23 +92,5 @@
 		</div>
 	</c:forEach>
 	</main>
-	<footer>
-		<div class="logo">
-			<img alt="logo" src="images/Mars.png" width="150px" height="100px">
-		</div>
-		<div>
-			<ul>
-				<li><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="tel:+6382639293">6382639293</a></li>
-				<li><i class="fa fa-gmail">&#xf0e0;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="mailto:mars1234@gmail.com">mars1234@gmail.com</a>
-			</ul>
-		</div>
-
-		<div class="addr">
-			12A, Middle Street,<br>Golden City,<br>Madurai,<br>Tamil
-			Nadu.
-		</div>
-	</footer>
 </body>
 </html>

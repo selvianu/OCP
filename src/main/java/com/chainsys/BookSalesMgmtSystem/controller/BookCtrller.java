@@ -17,10 +17,7 @@ import com.chainsys.BookSalesMgmtSystem.model.Books;
 public class BookCtrller {
 
 	@Autowired
-	BookDao bkdoa;
-
-	@Autowired
-	Books bk;
+	BookDao bookDoa;
 
 	@PostMapping("/addBooks")
 	public String insertBooks(@RequestParam("bkid") String bookId, @RequestParam("bkname") String bookName,
@@ -35,22 +32,23 @@ public class BookCtrller {
 			FileInputStream fin = new FileInputStream(path+filename);
 			byte[] images = fin.readAllBytes();
 //			set all data of the book model
-			bk.setBookId(bookId);
-			bk.setBookName(bookName);
-			bk.setAuthor(author);
-			bk.setPublisher(publisher);
-			bk.setEdition(edition);
-			bk.setCategory(category);
-			bk.setLanguage(language);
-			bk.setPrice(price);
-			bk.setMrpRate(mrpRate);
-			bk.setActPrice(actPrice);
-			bk.setAvlQuantity(quantity);
-			bk.setImage(images);
+			Books books = new Books();
+			books.setBookId(bookId);
+			books.setBookName(bookName);
+			books.setAuthor(author);
+			books.setPublisher(publisher);
+			books.setEdition(edition);
+			books.setCategory(category);
+			books.setLanguage(language);
+			books.setPrice(price);
+			books.setMrpRate(mrpRate);
+			books.setActualPrice(actPrice);
+			books.setAvailableQuantity(quantity);
+			books.setBookImage(images);
 			// check whether the data are inserted or not
 
-			int f = bkdoa.addBooks(bk);
-			if (f > 0) {
+			int noOfRowsAffected = bookDoa.addBooks(books);
+			if (noOfRowsAffected > 0) {
 				model.addAttribute("msg", "Successfully Added!");
 				return "addbooks.jsp";
 			} else {

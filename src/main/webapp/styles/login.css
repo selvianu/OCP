@@ -157,4 +157,29 @@ input {
 	width: 100%;
 }
 
+a{
+	text-align: center;
+	text-decoration: none;
+}
 
+a > i{
+	color: #220e24;
+	font-size: 15px;
+}
+
+.show{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.show>input{
+	border: none;
+	outline: none;
+	width: auto;
+}
+
+.show>label{
+	font-size: 15px;
+	margin-top: 18px;
+}

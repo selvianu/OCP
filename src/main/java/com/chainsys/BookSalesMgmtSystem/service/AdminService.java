@@ -1,37 +1,32 @@
 package com.chainsys.BookSalesMgmtSystem.service;
 
-import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.BookSalesMgmtSystem.dao.AdminDoa;
+import com.chainsys.BookSalesMgmtSystem.dao.AdminDao;
 import com.chainsys.BookSalesMgmtSystem.dao.BookDao;
-import com.chainsys.BookSalesMgmtSystem.dao.UserDoa;
+import com.chainsys.BookSalesMgmtSystem.dao.UserDao;
 import com.chainsys.BookSalesMgmtSystem.model.Admin;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
-import com.chainsys.BookSalesMgmtSystem.model.Orders;
+import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
 
 @Service
 public class AdminService {
 
 	@Autowired 
-	AdminDoa adoa;
+	AdminDao adminDoa;
 	
 	@Autowired
-	Admin ad;
+	UserDao userDoa;
 	
 	@Autowired
-	UserDoa usdoa;
-	
-	@Autowired
-	BookDao bkdoa;
+	BookDao bookDoa;
 	
 	public boolean checkIdentity(String uname, String pwd) {
-		Admin admin = adoa.adminLogin(uname, pwd);
+		Admin admin = adminDoa.adminLogin(uname, pwd);
 		if(uname.equals(admin.getAdminUserName()) && pwd.equals(admin.getAdminPassword())) {
 			return true;
 		}
@@ -41,13 +36,13 @@ public class AdminService {
 	}
 
 	public List<Users> getUser() {
-		List<Users> userData = usdoa.getUserList(); 
+		List<Users> userData = userDoa.getUserList(); 
 		return userData;
 	}
 	
 	public boolean addBooks(Books bk) {
-		int f = bkdoa.addBooks(bk);
-		if(f > 0) {
+		int noOfRowsAffected = bookDoa.addBooks(bk);
+		if(noOfRowsAffected > 0) {
 			return true;
 		}
 		else {
@@ -56,43 +51,38 @@ public class AdminService {
 	}
 	
 	public List<Books> getBooks(){
-		List<Books> bkData = bkdoa.getBookList();
-		return bkData;
+		List<Books> bookData = bookDoa.getBookList();
+		return bookData;
 	}
 	
-	public List<Books> getNovels(){
-		List<Books> novels = bkdoa.getNovels();
+	public List<Books> getNovelBooks(){
+		List<Books> novels = bookDoa.getNovelBooks();
 		return novels;
 	}
 	
-	public List<Books> getPoetry(){
-		List<Books> poetry = bkdoa.getPoetry();
+	public List<Books> getPoetryBooks(){
+		List<Books> poetry = bookDoa.getPoetryBooks();
 		return poetry;
 	}
 	
-	public List<Books> getHistory(){
-		List<Books> history = bkdoa.getHistory();
+	public List<Books> getHistoryBooks(){
+		List<Books> history = bookDoa.getHistoryBooks();
 		return history;
 	}
 	
-	public List<Books> getEducation(){
-		List<Books> educ = bkdoa.getEducation();
+	public List<Books> getEducationBooks(){
+		List<Books> educ = bookDoa.getEducationBooks();
 		return educ;
 	}
 	
-	public List<Books> getBiography(){
-		List<Books> biography = bkdoa.getBiography();
+	public List<Books> getBiographyBooks(){
+		List<Books> biography = bookDoa.getBiographyBooks();
 		return biography;
 	}
-	
-//	public Books getBk(String id) {
-//		Books bk = bkdoa.editBookDetails(id);
-//		return bk;
-//	}
-	
+
 	public boolean updateBook(Books bk) {
-		int flag = bkdoa.updateBookDetails(bk);
-		if(flag > 0) {
+		int noOfRowsAffected = bookDoa.updateBookDetails(bk);
+		if(noOfRowsAffected > 0) {
 			return true;
 		}
 		else {
@@ -101,8 +91,8 @@ public class AdminService {
 	}
 	
 	public boolean deleteBooks(String bookId) {
-		int f = bkdoa.deleteBook(bookId);
-		if(f > 0) {
+		int noOfRowsAffected = bookDoa.deleteBook(bookId);
+		if(noOfRowsAffected > 0) {
 			return true;
 		}
 		else {
@@ -110,8 +100,13 @@ public class AdminService {
 		}
 	}
 	
-	public List<Orders> getOrders() {
-		List<Orders> odList = adoa.getOrderList();
-		return odList;
+	public List<OrdersDetails> getOrders() {
+		List<OrdersDetails> orderList = adminDoa.getOrderList();
+		return orderList;
+	}
+	
+	public List<Books> getTopSearchedBooks(){
+		List<Books> topBooks = bookDoa.getTopSaledBooks();
+		return topBooks;
 	}
 }

@@ -1,26 +1,43 @@
 @charset "ISO-8859-1";
 
-table {
-	margin-top: 50px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
+.books-container {
+	display: grid;
+	gap: 50px;
+	grid-template-columns: 25% 25% 25% 25%;
+	row-gap: 50px;
+	padding-bottom: 50px;
+	padding-left: 80px;
+	padding-right: 230px;
+	padding-top: 50px;
+	width: 80%;
 }
 
-td, th {
-	text-align: left;
-	padding: 10px;
+.books-container>div {
+	border-radius: 20px;
+	box-shadow: 5px 10px 20px hsl(240, 1%, 34%);
+	height: 100%;
+	padding: 20px;
+	position: relative;
+	text-align: center;
 }
 
-.center_col {
-	padding-left: 40px;
+.books-container>div>img {
+	height: 300px;
+	border-radius: 20px;
+	width: 220px;
 }
 
-th {
-	background-color: #d68989;
+.books-container button {
+	background-color: rgb(255, 77, 136);
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	outline: none;
+	width: 100px;
+	height: 30px;
 }
 
-tr:nth-child(odd) {
-	background-color: #ecc0c0;
+h1{
+	color: maroon;
+	text-align: center;
 }
-

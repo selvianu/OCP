@@ -29,6 +29,7 @@ fieldset {
 legend {
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
 }
 
 input{
@@ -53,4 +54,11 @@ input[type="submit"] {
 	padding: 5px;
 	height: 30px;
 	width: 30px;
+}
+
+.msg{
+	color: red;
+    text-align: center;
+    width: 400px;
+    margin: auto;
 }

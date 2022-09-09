@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.chainsys.BookSalesMgmtSystem.dao.BookDao;
 import com.chainsys.BookSalesMgmtSystem.dao.OrderDao;
-import com.chainsys.BookSalesMgmtSystem.dao.UserDoa;
+import com.chainsys.BookSalesMgmtSystem.dao.UserDao;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
 import com.chainsys.BookSalesMgmtSystem.model.Cart;
 import com.chainsys.BookSalesMgmtSystem.model.CartDetails;
@@ -17,79 +17,82 @@ import com.chainsys.BookSalesMgmtSystem.model.CartDetails;
 public class UserService {
 
 	@Autowired
-	BookDao bkdao;
+	BookDao bookDao;
 	
 	@Autowired
 	OrderDao orderDao;
 	
+	@Autowired
+	UserDao userDao;
+	
 	public List<Books> getTopBooks(){
-		List<Books> topBooks = bkdao.getTopSaledBooks();
+		List<Books> topBooks = bookDao.getTopSaledBooks();
 		return topBooks;
 	}
 	
 	public List<Books> getBooks(){
-		List<Books> bkList = bkdao.getBookList();
+		List<Books> bkList = bookDao.getBookList();
 		return bkList;
 	}
 	
-	public List<Books> getNovels(){
-		List<Books> novels = bkdao.getNovels();
+	public List<Books> getNovelBooks(){
+		List<Books> novels = bookDao.getNovelBooks();
 		return novels;
 	}
 	
-	public List<Books> getPoetry(){
-		List<Books> poetry = bkdao.getPoetry();
+	public List<Books> getPoetryBooks(){
+		List<Books> poetry = bookDao.getPoetryBooks();
 		return poetry;
 	}
 	
-	public List<Books> getHistory(){
-		List<Books> history = bkdao.getHistory();
+	public List<Books> getHistoryBooks(){
+		List<Books> history = bookDao.getHistoryBooks();
 		return history;
 	}
 	
-	public List<Books> getEducation(){
-		List<Books> educ = bkdao.getEducation();
+	public List<Books> getEducationBooks(){
+		List<Books> educ = bookDao.getEducationBooks();
 		return educ;
 	}
 	
-	public List<Books> getBiography(){
-		List<Books> biography = bkdao.getBiography();
+	public List<Books> getBiographyBooks(){
+		List<Books> biography = bookDao.getBiographyBooks();
 		return biography;
 	}
 
-	public Books getBookById(String id) {
-		Books bk =  bkdao.getBookById(id);
-		return bk;
+	public Books getBookById(String bookId) {
+		Books books =  bookDao.getBookById(bookId);
+		return books;
 	}
 	
 	public List<Books> getBookBycategory(String category){
 		List<Books> categoryBook = null;
 		if(category.equals("Novel")) {
-			categoryBook = getNovels();
+			categoryBook = getNovelBooks();
 			return categoryBook;
 		}
 		else if(category.equals("Poetry")) {
-			categoryBook = getPoetry();
+			categoryBook = getPoetryBooks();
 			return categoryBook;
 		}
 		else if(category.equals("History")) {
-			categoryBook = getHistory();
+			categoryBook = getHistoryBooks();
 			return categoryBook;
 		}
 		else if(category.equals("Education")){
-			categoryBook = getEducation();
+			categoryBook = getEducationBooks();
 			return categoryBook;
 		}
 		else if(category.equals("Biography")) {
-			categoryBook = getBiography();
+			categoryBook = getBiographyBooks();
 			return categoryBook;
 		}
 		return null;
 	}
 
 	public boolean addToCart(Cart cart) {
-		int flag = orderDao.addcart(cart);
-		if(flag > 0) {
+		int noOfRowsAffected = orderDao.addcart(cart);
+		if(noOfRowsAffected > 0) {
 			return true;
 		}
 		else {
@@ -98,8 +101,37 @@ public class UserService {
 	}
 	
 	public List<CartDetails> getCart(String username){
-		List<CartDetails> carts = orderDao.getCart(username);
-		System.out.println(carts);
-		return carts;
+		List<CartDetails> cart = orderDao.getCart(username);
+		return cart;
+	}
+	
+	public boolean deleteCart(int cartId) {
+		int noOfRowsAffected = orderDao.deleteCart(cartId);
+		if(noOfRowsAffected > 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean updatePassword(String username, String password) {
+		if(!userDao.checkUserNameAvail(username)) {
+			int noOfRowsAffected = userDao.updatePassword(username, password);
+			if(noOfRowsAffected > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public List<Books> searchBooks(String keyword) {
+		List<Books> searchBooks = bookDao.searchBooks(keyword);
+		return searchBooks;
 	}
 }

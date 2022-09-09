@@ -32,7 +32,7 @@ public class CartMapper implements RowMapper<CartDetails>{
 		cart.setEdition(edition);
 		cart.setCategory(category);
 		cart.setPrice(actPrice);
-		cart.setImage(images);
+		cart.setBookImage(images);
 		cart.setBkImages(img);
 		return cart;
 	}

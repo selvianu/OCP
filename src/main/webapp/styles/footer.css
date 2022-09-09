@@ -5,8 +5,11 @@ footer {
 	display: flex;
 	height: 100px;
 	justify-content: space-between;
-	margin-top: 50px;
+	margin-bottom: -260px;
+	margin-top: 25px;
 	padding-right: 50px;
+	position: absolute;
+	width: 100%;
 }
 
 footer ul {

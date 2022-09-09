@@ -7,17 +7,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.BookSalesMgmtSystem.mapper.AdminMapper;
-import com.chainsys.BookSalesMgmtSystem.mapper.BookMapper;
 import com.chainsys.BookSalesMgmtSystem.mapper.OrderMapper;
 import com.chainsys.BookSalesMgmtSystem.model.Admin;
-import com.chainsys.BookSalesMgmtSystem.model.Books;
-import com.chainsys.BookSalesMgmtSystem.model.Orders;
+import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
 
 @Repository
-public class AdminDoa {
+public class AdminDao {
 
 	@Autowired
-	JdbcTemplate temp;
+	JdbcTemplate jdbcTemplate;
 	
 	@Autowired
 	Admin adm;
@@ -26,18 +24,18 @@ public class AdminDoa {
 		String q = "select * from admin";
 		Admin info = null;
 		try {
-			info = temp.queryForObject(q, new AdminMapper());
+			info = jdbcTemplate.queryForObject(q, new AdminMapper());
 		}catch (Exception e) {
 			e.printStackTrace();
 		}		
 		return info;
 	}
 	
-	public List<Orders> getOrderList(){
+	public List<OrdersDetails> getOrderList(){
 		String q = "select * from orderhistory inner join userdetails on orderhistory.username = userdetails.username";
-		List<Orders> orderList = null;
+		List<OrdersDetails> orderList = null;
 		try {
-			orderList = temp.query(q, new OrderMapper());
+			orderList = jdbcTemplate.query(q, new OrderMapper());
 			return orderList;
 		}catch (Exception e) {
 			return null;

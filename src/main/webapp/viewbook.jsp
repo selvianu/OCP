@@ -19,15 +19,11 @@
 			<li class="left"><img src="images/Mars.png" height="95px"
 				width="150px"></li>
 			<li>
-				<div class="search">
+				<form class="search" action="/searchBooks">
 					<input type="search"
-						placeholder="Search your favourite books" name="author">
-					<a href="/searchByAuthor">
-						<button>
-							<i class="fa fa-search"></i>
-						</button>
-					</a>
-				</div>
+						placeholder="Search your favourite books" name="keyword">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
 			</li>
 			<li class="profile"><a href="profile.jsp" class="right"><img
 					alt="profile" src="images/profile.png" width="70px" height="70px"></a></li>
@@ -37,7 +33,7 @@
 		<nav id="nav">
 		<div class="catgry">
 			<ul>
-			<li><a href="user_landing.jsp">Home</a></li>
+			<li><a href="userBooks">Home</a></li>
 				<li><a href="userBiography">Biography</a></li>
 				<li><a href="userEducation">Education</a></li>
 				<li><a href="userNovels">Novels</a></li>
@@ -71,15 +67,19 @@
 								<div>${book.edition }</div>
 							</div>
 						</c:if>
+						<div>
+							<div class="label">Category</div>
+							<div>${book.category}</div>
+						</div>
 					</div>
 					
 					<div class="price-container">
-						<div><h2><span><em>Rs.</em></span>${book.actPrice }</h2></div>
+						<div><h2><span><em>Rs.</em></span>${book.actualPrice }</h2></div>
 						<div><p class="msg">${msg }</p></div>
 					</div>
 					<div class="btn">
 						<a href="/addtocart?id=${book.bookId }&cat=${book.category}"><button class="cart">Add to cart</button></a>
-						<a href="#"><button class="order">Order</button></a>
+						<a href="/getOrders?id=${book.bookId}"><button class="order">Order</button></a>
 					</div>
 				</div>
 			</div>
@@ -90,16 +90,16 @@
 		</div>
 		
 		<div class="books-container">
-			<c:forEach var="bk" items="${relatedBook}" varStatus="loop">
+			<c:forEach var="book" items="${relatedBook}" varStatus="loop">
 				<c:if test = "${loop.index < 4}">
 					<div>
 						<div class="details">
-							<img alt="${bk.bookName }" src="data:image/jpg;base64,${bk.imagesPath}" width="200px"
+							<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="200px"
 								height="300px">
-							<h3>${bk.bookName }</h3>
-							<h4>Rs.${bk.actPrice }</h4>
+							<h3>${book.bookName }</h3>
+							<h4>Rs.${book.actualPrice }</h4>
 						</div>
-						<div class="view-btn"><a href="/getBooks?id=${bk.bookId }&cat=${bk.category}"><button>View</button></a></div>
+						<div class="view-btn"><a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a></div>
 					</div>
 				</c:if>
 			</c:forEach>
@@ -110,16 +110,16 @@
 		</div>
 		
 		<div class="books-container">
-			<c:forEach var="bk" items="${topBooks}" varStatus="loop">
+			<c:forEach var="book" items="${topBooks}" varStatus="loop">
 				<c:if test = "${loop.index < 4}">
 					<div>
 						<div class="details">
-							<img alt="${bk.bookName }" src="data:image/jpg;base64,${bk.imagesPath}" width="200px"
+							<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="200px"
 								height="300px">
-							<h3>${bk.bookName }</h3>
-							<h4>Rs.${bk.actPrice }</h4>
+							<h3>${book.bookName }</h3>
+							<h4>Rs.${book.actualPrice }</h4>
 						</div>
-						<div class="view-btn"><a href="/getBooks?id=${bk.bookId }&cat=${bk.category}"><button>View</button></a></div>
+						<div class="view-btn"><a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a></div>
 					</div>
 				</c:if>
 			</c:forEach>

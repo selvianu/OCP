@@ -14,9 +14,9 @@ public class Books {
 	private String language;
 	private int price;
 	private int mrpRate;
-	private int actPrice;
-	private int avlQuantity;
-	private byte[] image;
+	private int actualPrice;
+	private int availableQuantity;
+	private byte[] bookImage;
 	private String imagesPath;
 
 	public String getBookId() {
@@ -91,30 +91,6 @@ public class Books {
 		this.mrpRate = mrpRate;
 	}
 
-	public int getActPrice() {
-		return actPrice;
-	}
-
-	public void setActPrice(int actPrice) {
-		this.actPrice = actPrice;
-	}
-
-	public int getAvlQuantity() {
-		return avlQuantity;
-	}
-
-	public void setAvlQuantity(int avlQuantity) {
-		this.avlQuantity = avlQuantity;
-	}
-
-	public byte[] getImage() {
-		return image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-
 	public String getImagesPath() {
 		return imagesPath;
 	}
@@ -123,5 +99,28 @@ public class Books {
 		this.imagesPath = imagesPath;
 	}
 
-	
+	public int getActualPrice() {
+		return actualPrice;
+	}
+
+	public void setActualPrice(int actualPrice) {
+		this.actualPrice = actualPrice;
+	}
+
+	public int getAvailableQuantity() {
+		return availableQuantity;
+	}
+
+	public void setAvailableQuantity(int availableQuantity) {
+		this.availableQuantity = availableQuantity;
+	}
+
+	public byte[] getBookImage() {
+		return bookImage;
+	}
+
+	public void setBookImage(byte[] bookImage) {
+		this.bookImage = bookImage;
+	}
+
 }

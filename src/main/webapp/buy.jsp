@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>user landing page</title>
-<link rel="stylesheet" href="styles/user.css">
+<link rel="stylesheet" href="styles/navbar.css">
 <link rel="stylesheet" href="styles/buy.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,31 +22,54 @@
 <main>
 <div class="buy-form-container">
 <form action="/placeOrder">
+<input type="hidden" id = "avl_qty" value="${book.availableQuantity }">
 <label>Book ID</label>
-<input type="text" name="bkid" placeholder="Enter the book id" required>
+<input type="text" name="bookid" value="${book.bookId }" required readonly>
+<label>Book Name</label>
+<input type="text" name="bookName" value="${book.bookName }" required readonly>
+<label>Author</label>
+<input type="text" name="author" value="${book.author }" required readonly>
+<label>Publisher</label>
+<input type="text" name="publisher" value="${book.publisher }" required readonly>
+<label>Price</label>
+<input type="text" name="price" value="${book.actualPrice }" id="price" required readonly>
 <label>Quantity</label>
-<input type="text" name="quantity" placeholder="Enter how many books you want" pattern="[0-9]*" required>
-<input type="submit" name="submit" value="Buy">
+<input type="text" name="quantity" value="1" pattern="[0-9]*" id="qty" required onkeydown="calculatePriceAmount()">
+<div></div>
+<div id="alert-msg"></div>
+<label>Total Price</label>
+<input type="text" name="total" value="${book.actualPrice }" pattern="[0-9]*" id="totalPrice" required readonly>
+<label>Advance Amount</label>
+<input type="text" name="advanceAmount" value="0" pattern="[0-9]*" id="advanceAmount" readonly>
+<a href="cancel"><button>Cancel</button> </a>
+<input type="submit" name="submit" value="Buy" id="submit">
 </form>
 </div>
 </main>	
-<footer>
-		<div class="logo">
-			<img alt="logo" src="images/Mars.png" width="150px" height="100px">
-		</div>
-		<div>
-			<ul>
-				<li><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="tel:+6382639293">6382639293</a></li>
-				<li><i class="fa fa-gmail">&#xf0e0;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="mailto:mars1234@gmail.com">mars1234@gmail.com</a>
-			</ul>
-		</div>
-
-		<div class="addr">
-			12A, Middle Street,<br>Golden City,<br>Madurai,<br>Tamil
-			Nadu.
-		</div>
-	</footer>
 </body>
+<script type="text/javascript">
+	function calculatePriceAmount(){
+		var price = document.getElementById("price").value;
+		var availableQuantity = document.getElementById("avl_qty").value;
+		var adAmt = document.getElementById("advanceAmount").value;
+		var qty = document.getElementById("qty").value;
+		let totalPrice = qty * price;
+		if(availableQuantity > qty){
+			if(totalPrice > 10000){
+				let advanceAmt = (totalPrice * 30) / 100;
+				document.getElementById("totalPrice").value = totalPrice;
+				document.getElementById("advanceAmount").value = advanceAmt;
+			}
+			else{
+				document.getElementById("totalPrice").value = totalPrice;
+			}
+		}
+		else{
+			document.getElementById("alert-msg").innerHTML = "Only " + qty + " are available";
+			document.getElementById("submit").disabled = true;
+		}
+		
+	}
+	
+</script>
 </html>

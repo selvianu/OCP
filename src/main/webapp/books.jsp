@@ -26,7 +26,7 @@
 	<nav>
 		<div class="menu">
 			<ul>
-				<li><a href="home.jsp">Home</a></li>
+				<li><a href="adminHome">Home</a></li>
 				<li class="dropdown"><a href="Books" class="dropbtn">Books</a>
 					<div class="dropdown-content">
     					<a href="Novels">Novels</a>
@@ -47,74 +47,71 @@
 	<main>
 		<p class="msg">${msg }</p>
 		<div class="books-container">
-			<c:forEach var="bk" items="${books}">
+			<c:forEach var="book" items="${books}">
 				<div class="book-info">
 					<div>
-						<img alt="book cover page" src="data:image/jpg;base64,${bk.imagesPath}">
+						<img alt="book cover page" src="data:image/jpg;base64,${book.imagesPath}">
 					</div>
 					<div>
-						<form action="update" class="container" id="${bk.bookId }">
-							<div class="head"><h1>${bk.bookName}</h1>
-							<i style='font-size:20px' class='fas' onclick="enable(${bk.bookId})" class="test">&#xf304;</i>
+						<form action="update" class="container" id="${book.bookId }">
+							<div class="head"><h1>${book.bookName}</h1>
+							<i style='font-size:20px' class='fas' onclick="enable(${book.bookId})" class="test">&#xf304;</i>
 							</div>
 							<div class="input-feild">
 								<label>Book ID</label>
-								<input type="text" name="bkid" value="${bk.bookId}" readonly>
+								<input type="text" name="bookid" value="${book.bookId}" readonly>
 							</div>
 				
 							<div class="input-feild">
 								<label>Book Name</label>
-								<input type="text" name="bkname" value="${bk.bookName}" readonly>
+								<input type="text" name="bookname" value="${book.bookName}" readonly>
 							</div>
 				
 							<div class="input-feild">
 							<label>Author Name</label>
-							<input type="text" name="authorname" value="${bk.author}" readonly>
+							<input type="text" name="author" value="${book.author}" readonly>
 							</div>
 				
 							<div class="input-feild">
 							<label>Publisher</label>
-							<input type="text" name="publisher" value="${bk.publisher }" readonly>
+							<input type="text" name="publisher" value="${book.publisher }" readonly>
 							</div>
 							
 							<div class="input-feild">
 								<label>Edition</label>
-							<input type="text" name="edition" value="${bk.edition}" readonly>
+							<input type="text" name="edition" value="${book.edition}" readonly>
 							</div>
 			
 							<div class="input-feild">
 								<label>Quantity</label>
-							<input type="text" name="quantity" value="${bk.avlQuantity}" placeholder="Enter the available Quantity of the book" 
+							<input type="text" name="quantity" value="${book.availableQuantity}" placeholder="Enter the available Quantity of the book" 
 								pattern="[0-9]*" required="required" class="inactive">
 							</div>
 			
 							<div class="input-feild">
 								<label>Price</label>
-							<input type="text" name="price" value="${bk.price }" placeholder="Enter the price of the book" 
+							<input type="text" name="price" value="${book.price }" placeholder="Enter the price of the book" 
 								pattern="[0-9]*" required class="inactive">
 							</div>
 							
 							<div class="input-feild">
 								<label>Actual Price</label>
-							<input type="text" name="price" value="${bk.actPrice }" placeholder="Enter the price of the book" 
+							<input type="text" name="actualPrice" value="${book.actualPrice }" placeholder="Enter the price of the book" 
 								pattern="[0-9]*" required class="inactive">
 							</div>
 			
 							<div class="input-feild">
 								<label>MRP Rate</label>
-							<input type="text" name="mrpRate" value="${bk.mrpRate }" placeholder="Enter the MRP price of the book" 
+							<input type="text" name="mrpRate" value="${book.mrpRate }" placeholder="Enter the MRP price of the book" 
 								pattern="[0-9]*" required class="inactive">
 							</div>
 
 							<div class="submit">
-								<input type="submit" name="Save" value="Save" onclick="disable(${bk.bookId})">
+								<input type="submit" name="Save" value="Save" onclick="disable(${book.bookId})">
 							</div>
-							<!-- <div class="popup" id="popup">
-								<p>Do you want to delete this books</p>
-							</div> -->
 						</form>
 						<div class="btn">
-							<a href="/delete?id=${bk.bookId }"><button class="del">Delete</button></a>
+							<a href="/delete?id=${book.bookId }"><button class="del">Delete</button></a>
 							<%-- <button class="del" onclick="popup(${bk.bookId})">Delete</button> --%>
 						</div>
 					</div>
