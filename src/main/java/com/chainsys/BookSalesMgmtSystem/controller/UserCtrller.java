@@ -129,11 +129,11 @@ public class UserCtrller {
 		List<Books> novels = userService.getNovelBooks();
 		if(novels != null) {
 			model.addAttribute("books", novels);
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 		else {
 			model.addAttribute("msg", "There is no Books are available now");
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 	}
 	
@@ -142,11 +142,11 @@ public class UserCtrller {
 		List<Books> poetry = userService.getPoetryBooks();
 		if(poetry != null) {
 			model.addAttribute("books", poetry);
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 		else {
 			model.addAttribute("msg", "There is no Books are available now");
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 	}
 	
@@ -155,11 +155,11 @@ public class UserCtrller {
 		List<Books> history = userService.getHistoryBooks();
 		if(history != null) {
 			model.addAttribute("books", history);
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 		else {
 			model.addAttribute("msg", "There is no Books are available now");
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 	}
 	
@@ -168,11 +168,11 @@ public class UserCtrller {
 		List<Books> education = userService.getEducationBooks();
 		if(education != null) {
 			model.addAttribute("books",education);
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 		else {
 			model.addAttribute("msg", "There is no Books are available now");
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 	}
 	
@@ -181,11 +181,11 @@ public class UserCtrller {
 		List<Books> biography = userService.getBiographyBooks();
 		if(biography != null) {
 			model.addAttribute("books", biography);
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 		else {
 			model.addAttribute("msg", "There is no Books are available now");
-			return "user_landing.jsp";
+			return "allbooks.jsp";
 		}
 	}
 	

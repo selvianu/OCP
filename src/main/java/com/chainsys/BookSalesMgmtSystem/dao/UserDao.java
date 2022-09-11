@@ -1,12 +1,14 @@
 package com.chainsys.BookSalesMgmtSystem.dao;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.BookSalesMgmtSystem.mapper.UserMapper;
+import com.chainsys.BookSalesMgmtSystem.model.Books;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
 
 @Repository
@@ -110,13 +112,16 @@ public class UserDao {
 	}
 	
 	public List<Users> getTopBuyers(){
-		String selectTopUser = "select username from(select username, sum(quantity) from orderhistory GROUP BY username ORDER by username desc)where ROWNUM <= 5";
-		List<Users> userList = null;
+		String selectTopUser = "select username from(select username, sum(quantity) "
+				+ "from orderhistory GROUP BY username ORDER by username desc)where ROWNUM <= 4";
+		List<String> userList = null;
 		try {
-			userList = jdbcTemplate.query(selectTopUser, new UserMapper());
-			return userList;
+			userList = jdbcTemplate.queryForList(selectTopUser, String.class);
+			List<Users> topUserList = userList.stream().map(user -> getUserById(user)).collect(Collectors.toList());
+			return topUserList;
 		}catch (Exception e) {
-			return null;
+			e.printStackTrace();
 		}
+		return null;
 	}
 }

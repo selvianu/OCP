@@ -191,7 +191,7 @@ public class BookDao {
 
 	//
 	public List<Books> getBookByLanguage(String language){
-		String selectBookByLang = "slect * from bookdetails where language = ?";
+		String selectBookByLang = "select * from bookdetails where language = ?";
 		List<Books> bookList = null;
 		try {
 			bookList = jdbcTemplate.query(selectBookByLang, new BookMapper(), language);

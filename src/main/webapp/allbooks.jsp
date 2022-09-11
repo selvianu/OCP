@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Mars books</title>
 <link rel="stylesheet" href="styles/user.css">
 <link rel="stylesheet" href="styles/footer.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -32,7 +32,7 @@
 	<nav id="nav">
 		<div class="catgry">
 			<ul>
-			<li><a href="home.jsp">Home</a></li>
+			<li><a href="userBooks">Home</a></li>
 				<li><a href="userBiography">Biography</a></li>
 				<li><a href="userEducation">Education</a></li>
 				<li><a href="userNovels">Novels</a></li>
@@ -52,7 +52,7 @@
 					affordable price in<br>various categories<br> <span>Buy!
 						and Enjoy!</span>
 				</div>
-				<img alt="slide 1" src="images/bok.jpg" height="400px" width="100%">
+				<img alt="slide 1" src="images/bok.jpg" height="250px" width="100%">
 
 			</div>
 
@@ -61,7 +61,7 @@
 					Only Cash on Delivery <br>is Available!
 				</div>
 				<img alt="cash on delivery" src="images/cashondevlry.jpg"
-					width="100%" height="400px" style="float: right;">
+					width="100%" height="250px" style="float: right;">
 			</div>
 
 			<div class="slides">
@@ -69,26 +69,30 @@
 					Free Shipping Available<br> in Nationwide!
 				</div>
 				<img alt="discount" src="images/delivery.jpg" width="100%"
-					height="400px">
+					height="250px">
 
 			</div>
 
-			<a class="prev" onclick="plusDivs(-1)">&#10094;</a> <a class="next"
-				onclick="plusDivs(1)">&#10095;</a>
 		</div>
+		<c:if test="${not empty books}">
 		<div class="books-container">
 			<c:forEach var="book" items="${books}" varStatus="loop">
-				<div>
-					<div class="details">
-						<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="200px"
-							height="300px">
-						<h3>${book.bookName }</h3>
-						<h4>Rs.${book.actualPrice }</h4>
+				<div class="book-info">
+						<div class="img">
+							<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="100%" height="270px">
+							<h3>${book.bookName }</h3>
+						</div>
+						<div class="details">
+							<h4>Rs.${book.actualPrice }</h4>
+						</div>
+						<div class="view-btn">
+							<a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a>
+						</div>
 					</div>
-					<div class="view-btn"><a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a></div>
-				</div>
 			</c:forEach>
 		</div>
+		</c:if>
+		<h4 style="text-align: center;">${msg }</h4>
 	</main>
 	
 	<footer>
