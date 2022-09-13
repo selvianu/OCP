@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="80px"
+			<li class="left"><img alt="logo" src="images/Mars.png" height="80px"
 				width="150px"></li>
 			<li class="profile"><a href="profile.jsp" class="right"><img
 					alt="profile" src="images/profile.png" width="50px" height="50px"></a></li>
@@ -43,9 +43,9 @@
 		</div>
 		<div>
 			<ul>
-				<li><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<li><em class="fa fa-phone"></em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="tel:+6382639293">6382639293</a></li>
-				<li><i class="fa fa-gmail">&#xf0e0;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<li><em class="fa fa-gmail">&#xf0e0;</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="mailto:mars1234@gmail.com">mars1234@gmail.com</a>
 			</ul>
 		</div>

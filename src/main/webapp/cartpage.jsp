@@ -15,9 +15,8 @@
 <body>
 
 	<header>
-		<%-- <%= session.getAttribute("user") %> --%>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="95px"
+			<li class="left"><img alt="logo" src="images/Mars.png" height="95px"
 				width="150px"></li>
 			<li>
 				<div class="search">
@@ -25,7 +24,7 @@
 						placeholder="Search your favourite books" name="author">
 					<a href="/searchByAuthor">
 						<button>
-							<i class="fa fa-search"></i>
+							<em class="fa fa-search"></em>
 						</button>
 					</a>
 				</div>

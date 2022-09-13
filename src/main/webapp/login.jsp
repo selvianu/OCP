@@ -20,9 +20,9 @@
 				<legend>Admin Login</legend>
 				<form action="/adminlogin">
 					<div class="input-icon">
-						<i class="fa fa-user icon"></i> <input type="text"
+						<em class="fa fa-user icon"></em> <input type="text"
 							placeholder="Enter Username" name="username" class="input-field" required>
-						<i class="fa fa-lock icon"></i> <input type="password"
+						<em class="fa fa-lock icon"></em> <input type="password"
 							placeholder="Enter a password" name="pwd" class="input-field" required>
 							<input type="submit" value="Login" class="login-staff" />
 					</div>
@@ -35,15 +35,15 @@
 				<legend>User Login</legend>
 				<form action="/userlogin">
 					<div class="input-icon">
-						<i class="fa fa-user icon"></i> <input type="text"
+						<em class="fa fa-user icon"></em> <input type="text"
 							placeholder="Enter Username" name="username" class="input-field" required>
-						<i class="fa fa-lock icon"></i> <input type="password"
+						<em class="fa fa-lock icon"></em> <input type="password"
 							placeholder="Enter a password" name="pwd" class="input-field" required>
 						<input type="submit" value="Login" class="login" />
 					</div>
 				</form>
 				
-				<a href="forgotpassword.jsp"><i>forgot password?</i></a>
+				<a href="forgotpassword.jsp"><em>forgot password?</em></a>
 
 				<p>If you are new User</p>
 

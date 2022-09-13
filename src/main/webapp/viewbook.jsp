@@ -16,13 +16,13 @@
 <body>
 	<header>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="95px"
+			<li class="left"><img alt="logo" src="images/Mars.png" height="95px"
 				width="150px"></li>
 			<li>
 				<form class="search" action="/searchBooks">
 					<input type="search"
 						placeholder="Search your favourite books" name="keyword">
-					<button type="submit"><i class="fa fa-search"></i></button>
+					<button type="submit"><em class="fa fa-search"></em></button>
 				</form>
 			</li>
 			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px" onclick="showOption()"></li>
@@ -51,7 +51,7 @@
 	</header>
 	
 	<div class="filters" id="filters">
- 		<button class="dropdown-btn">Price <i class="fa fa-caret-down"></i></button>
+ 		<button class="dropdown-btn">Price <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
     		<a href="under200">Under Rs.200</a>
     		<a href="over500">Rs.201 - Rs.500</a>
@@ -59,7 +59,7 @@
     		<a href="under1000">Rs.801 - Rs.1000</a>
     		<a href="over1000">Over Rs.1000</a>
   		</div>
- 		<button class="dropdown-btn">Language <i class="fa fa-caret-down"></i></button>
+ 		<button class="dropdown-btn">Language <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
     		<a href="language?lang=English">English</a>
     		<a href="language?lang=Tamil">Tamil</a>
@@ -172,9 +172,9 @@
 		</div>
 		<div>
 			<ul>
-				<li><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<li><em class="fa fa-phone"></em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="tel:+6382639293">6382639293</a></li>
-				<li><i class="fa fa-gmail">&#xf0e0;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<li><em class="fa fa-gmail">&#xf0e0;</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="mailto:mars1234@gmail.com">mars1234@gmail.com</a>
 			</ul>
 		</div>

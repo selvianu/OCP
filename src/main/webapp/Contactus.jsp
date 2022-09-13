@@ -21,8 +21,8 @@
 		<p>12A,Middle Street,<br>Golden city,<br>Madurai,<br>Tamil nadu.</p>
 		<div>
 			<a href="#" class="fa fa-facebook"></a> <a href="#"
-				class="fa fa-twitter"></a> <a href="mailto:marsbookcenter@gmail.com"><i
-				style="font-size: 24px" class="fa fa-gmail">&#xf0e0;</i></a> <a
+				class="fa fa-twitter"></a> <a href="mailto:marsbookcenter@gmail.com"><em
+				style="font-size: 24px" class="fa fa-gmail">&#xf0e0;</em></a> <a
 				href="tel:6372819382" class="fa fa-phone"></a>
 		</div>
 	</div>

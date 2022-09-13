@@ -15,7 +15,7 @@
 <body>
 	<header>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="95px"
+			<li class="left"><img alt="logo" src="images/Mars.png" height="95px"
 				width="150px"></li>
 			<li class="profile"><img alt="profile" src="images/profile.png"
 				width="70px" height="70px"></li>
@@ -55,7 +55,7 @@
 					<div>
 						<form action="update" class="container" id="${book.bookId }">
 							<div class="head"><h1>${book.bookName}</h1>
-							<i style='font-size:20px' class='fas' onclick="enable(${book.bookId})" class="test">&#xf304;</i>
+							<em style='font-size:20px' class='fas' onclick="enable(${book.bookId})" class="test">&#xf304;</em>
 							</div>
 							<div class="input-feild">
 								<label>Book ID</label>
@@ -125,9 +125,9 @@
 		</div>
 		<div>
 			<ul>
-				<li><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+				<li><em class="fa fa-phone"></em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
 					href="tel:+6382639293">6382639293</a></li>
-				<li><i class="fa fa-gmail">&#xf0e0;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<li><em class="fa fa-gmail">&#xf0e0;</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="mailto:mars1234@gmail.com">mars1234@gmail.com</a>
 			</ul>
 		</div>
@@ -136,29 +136,6 @@
 			12A, Middle Street,<br>Golden City,<br>Madurai,<br>Tamil Nadu.
 		</div>
 	</footer>
-	<script type="text/javascript">
-		function enable(trigger){
-			console.log("Inside Function");
-			/* var text = document.getElementsByClassName('inactive')[10]; */
-			console.log(trigger);
-			var cont=trigger.querySelectorAll('.inactive');
-			console.log(cont.length);
-			for(let i = 0; i < cont.length; i++){
-				cont[i].classList.add('active');
-			}
-		}
-		
-		function disable(trigger){
-			console.log("Inside Function");
-			/* var text = document.getElementsByClassName('inactive')[10]; */
-			console.log(trigger);
-			var cont=trigger.querySelectorAll('.active');
-			console.log(cont.length);
-			for(let i = 0; i < cont.length; i++){
-				cont[i].classList.add('inactive');
-			}
-		}
-		
-	</script>
+	<script type="text/javascript" src="script/editbutton.js"></script>
 </body>
 </html>

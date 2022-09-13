@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="80px"
+			<li class="left"><img alt="logo" src="images/Mars.png" height="80px"
 				width="150px"></li>
 			<li class="profile"><a href="profile.jsp" class="right"><img
 					alt="profile" src="images/profile.png" width="50px" height="50px"></a></li>

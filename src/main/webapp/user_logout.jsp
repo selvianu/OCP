@@ -15,9 +15,9 @@
 				<legend>Logout</legend>
 				<form action="/userLogout">
 					<div class="input-icon">
-						<i class="fa fa-user icon"></i> <input type="text"
+						<em class="fa fa-user icon"></em> <input type="text"
 							placeholder="Enter your Username" name="username" class="input-field">
-						<i class="fa fa-lock icon"></i> <input type="password"
+						<em class="fa fa-lock icon"></em> <input type="password"
 							placeholder="Enter your password" name="pwd" class="input-field">
 						<input type="submit" value="Logout" />
 					</div>

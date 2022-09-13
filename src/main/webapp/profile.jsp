@@ -12,7 +12,7 @@
 <body>
 <header>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="50px"
+			<li class="left"><img alt="logo" src="images/Mars.png" height="50px"
 				width="90px"></li>
 			<li class="profile">
 				<a href="user_logout.jsp">

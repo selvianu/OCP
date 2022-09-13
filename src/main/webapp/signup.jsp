@@ -18,10 +18,10 @@
 		<legend>Sign in</legend>
 		<form action="/signup">
 			<div class="input-icon">
-				<i class="fa fa-user icon"></i> <input type="text"
+				<em class="fa fa-user icon"></em> <input type="text"
 					placeholder="Enter Username" name="username" class="input-field" pattern="[A-Za-z0-9]{5,15}"
 					title="Please enter a valid username. The username should contain 5 to 10 alpha numeric letters" required>
-				<i class="fa fa-envelope icon"></i> <input type="email"
+				<em class="fa fa-envelope icon"></em> <input type="email"
 					placeholder="Enter your email id" name="email" class="input-field" required pattern="[a-z0-9._%+-]+@gmail+\.com"> <i
 					class="fa fa-lock icon"></i> <input type="password"
 					placeholder="Enter a password" name="pwd" class="input-field" 

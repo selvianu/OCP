@@ -10,7 +10,7 @@
 <body>
 	<nav>
 		<ul>
-			<li class="left"><img src="images/Mars.png" height="60px"
+			<li class="left"><img alt="logo" src="images/Mars.png" height="60px"
 				width="80px"></li>
 
 
