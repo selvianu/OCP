@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -63,6 +62,7 @@ public class AdminCtrller {
 			int actPrice = mrpRate - 5;// calculate the actual rate of the book
 			String path = "C:\\eclipse\\BookSalesMgmtSystem\\src\\main\\webapp\\images\\";
 			String filename = img.getOriginalFilename();
+			
 			FileInputStream fin = new FileInputStream(path+filename);
 			byte[] images = fin.readAllBytes();
 //			set all data of the book model

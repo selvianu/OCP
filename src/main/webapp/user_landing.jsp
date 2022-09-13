@@ -43,13 +43,13 @@
 				<li><a href="userPoetry">Poetry</a></li>
 				<li><a href="userHistory">History</a></li>
 				<li><a href="getAllBooks">All</a></li>
-				<li class="button" onclick="showFilters()"><a href="#">Filters <i class="fa fa-caret-down"></i></a></li>
+				<li class="button" onclick="showFilters()"><a href="#">Filters <em class="fa fa-caret-down"></em></a></li>
 			</ul>
 		</div>
 	</nav>
  
  	<div class="filters" id="filters">
- 		<button class="dropdown-btn">Price <i class="fa fa-caret-down"></i></button>
+ 		<button class="dropdown-btn">Price <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
     		<a href="under200">Under Rs.200</a>
     		<a href="over500">Rs.201 - Rs.500</a>
@@ -57,7 +57,7 @@
     		<a href="under1000">Rs.801 - Rs.1000</a>
     		<a href="over1000">Over Rs.1000</a>
   		</div>
- 		<button class="dropdown-btn">Language <i class="fa fa-caret-down"></i></button>
+ 		<button class="dropdown-btn">Language <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
     		<a href="language?lang=English">English</a>
     		<a href="language?lang=Tamil">Tamil</a>
@@ -99,7 +99,7 @@
 		</div>
 
 		<div class="topic">
-			<h1><i>Top Most Searched Books</i></h1>
+			<h1><em>Top Most Searched Books</em></h1>
 		</div>
 		
 		<div class="books-container">
@@ -122,7 +122,7 @@
 		</div>
 		
 		<div class="topic">
-			<h1><i>New Arrivals</i></h1>
+			<h1><em>New Arrivals</em></h1>
 		</div>
 		
 		<div class="books-container">

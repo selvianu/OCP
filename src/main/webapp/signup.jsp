@@ -22,8 +22,8 @@
 					placeholder="Enter Username" name="username" class="input-field" pattern="[A-Za-z0-9]{5,15}"
 					title="Please enter a valid username. The username should contain 5 to 10 alpha numeric letters" required>
 				<em class="fa fa-envelope icon"></em> <input type="email"
-					placeholder="Enter your email id" name="email" class="input-field" required pattern="[a-z0-9._%+-]+@gmail+\.com"> <i
-					class="fa fa-lock icon"></i> <input type="password"
+					placeholder="Enter your email id" name="email" class="input-field" required pattern="[a-z0-9._%+-]+@gmail+\.com"> <em
+					class="fa fa-lock icon"></em> <input type="password"
 					placeholder="Enter a password" name="pwd" class="input-field" 
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required id="pwd"
   					title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">

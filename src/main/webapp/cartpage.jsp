@@ -48,7 +48,7 @@
 				<li><a href="userPoetry">Poetry</a></li>
 				<li><a href="userHistory">History</a></li>
 				<li><a href="userBooks">All</a></li>
-				<li class="button" onclick="showFilters()"><a href="#">Filters <i class="fa fa-caret-down"></i></a></li>
+				<li class="button" onclick="showFilters()"><a href="#">Filters <em class="fa fa-caret-down"></em></a></li>
 			</ul>
 		</div>
 	</nav>	
@@ -84,7 +84,7 @@
 			<div>
 				<div class="container">
 					<div class="head">
-						<h1><i>${ct.bookName }</i></h1>
+						<h1><em>${ct.bookName }</em></h1>
 						<div>
 							<div class="label">Author</div>
 							<div>${ct.authors }</div>

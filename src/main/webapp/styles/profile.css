@@ -20,7 +20,7 @@ fieldset {
 	align-items: center;
 	display: grid;
 	grid-template-columns: 30% 70%;
-	height: 400px; justify-content : center;
+	height: 400px;
 	margin: auto;
 	width: 100%;
 	justify-content: center;

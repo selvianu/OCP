@@ -21,7 +21,7 @@
 				<form class="search" action="/searchBooks">
 					<input type="search"
 						placeholder="Search your favourite books" name="keyword">
-					<button type="submit"><i class="fa fa-search"></i></button>
+					<button type="submit"><em class="fa fa-search"></em></button>
 				</form>
 			</li>
 			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px" onclick="showOption()"></li>

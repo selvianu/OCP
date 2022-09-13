@@ -45,8 +45,8 @@
 	</nav>
 
 	<main>
-		<h1>Users List</h1>
 		<table>
+		<caption>Users List</caption>
 			<thead>
 				<tr>
 					<th>User Name</th>

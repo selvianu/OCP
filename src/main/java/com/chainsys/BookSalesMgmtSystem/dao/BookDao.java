@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.BookSalesMgmtSystem.mapper.BookMapper;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
-import com.chainsys.BookSalesMgmtSystem.model.Users;
 
 @Repository
 public class BookDao {

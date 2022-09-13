@@ -7,7 +7,7 @@ body {
 }
 
 .form-container {
-	background-color: rgb(211, 248, 220); border : 1px solid black;
+	background-color: rgb(211, 248, 220);
 	border-radius: 20px;
 	height: 450px;
 	margin-left: auto;
