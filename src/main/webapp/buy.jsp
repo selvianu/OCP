@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
 <meta content="text/html; charset=utf-8" />
 <title>user landing page</title>
 <link rel="stylesheet" href="styles/navbar.css">

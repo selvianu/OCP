@@ -55,7 +55,7 @@
 	</header>
 	
 	<div class="filters" id="filters">
- 		<button class="dropdown-btn">Price <i class="fa fa-caret-down"></i></button>
+ 		<button class="dropdown-btn">Price <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
     		<a href="under200">Under Rs.200</a>
     		<a href="over500">Rs.201 - Rs.500</a>
@@ -63,7 +63,7 @@
     		<a href="under1000">Rs.801 - Rs.1000</a>
     		<a href="over1000">Over Rs.1000</a>
   		</div>
- 		<button class="dropdown-btn">Language <i class="fa fa-caret-down"></i></button>
+ 		<button class="dropdown-btn">Language <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
     		<a href="language?lang=English">English</a>
     		<a href="language?lang=Tamil">Tamil</a>

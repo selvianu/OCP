@@ -44,8 +44,9 @@
 	</nav>
 	
 	<main>
-	<h1>Order List</h1>
+	
 	<table>
+		<caption>Order List</caption>
         <thead>
           <tr>
             <th>Order id</th>

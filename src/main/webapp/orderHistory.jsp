@@ -44,7 +44,7 @@
 				<li><a href="userPoetry">Poetry</a></li>
 				<li><a href="userHistory">History</a></li>
 				<li><a href="getAllBooks">All</a></li>
-				<li class="button" onclick="showFilters()"><a href="#">Filters <i class="fa fa-caret-down"></i></a></li>
+				<li class="button" onclick="showFilters()"><a href="#">Filters <em class="fa fa-caret-down"></em></a></li>
 			</ul>
 		</div>
 	</nav>
