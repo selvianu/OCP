@@ -7,9 +7,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.BookSalesMgmtSystem.mapper.CartMapper;
+import com.chainsys.BookSalesMgmtSystem.mapper.OrderHistoryMapper;
 import com.chainsys.BookSalesMgmtSystem.mapper.OrderMapper;
 import com.chainsys.BookSalesMgmtSystem.model.Cart;
 import com.chainsys.BookSalesMgmtSystem.model.CartDetails;
+import com.chainsys.BookSalesMgmtSystem.model.OrderHistory;
 import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
 import com.chainsys.BookSalesMgmtSystem.model.Rating;
 
@@ -118,11 +120,13 @@ public class OrderDao {
 		return 0;
 	}
 	
-	public List<OrdersDetails> getOrdersById(String userName){
-		String selectOrders = "select * from orderhistory where username = ?";
-		List<OrdersDetails> orderList = null;
+	public List<OrderHistory> getOrdersById(String userName){
+		String selectOrders = "select od.orderid, od.booksid, od.username, od.orderdate, od.quantity, od.totalprice, od.advanceamt, od.status,"
+				+ "bk.booksname, bk.act_rate, bk.book_image from orderhistory od inner join bookdetails bk on od.booksid = bk.booksid "
+				+ "WHERE od.username = ?";
+		List<OrderHistory> orderList = null;
 		try {
-			orderList = jdbcTemplate.query(selectOrders, new OrderMapper(), userName);
+			orderList = jdbcTemplate.query(selectOrders, new OrderHistoryMapper(), userName);
 			return orderList;
 		}catch (Exception e) {
 			return null;

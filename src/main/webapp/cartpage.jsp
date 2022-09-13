@@ -2,9 +2,9 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
+<meta content="text/html; charset=utf-8" />
 <title>Cart page</title>
 <link rel="stylesheet" href="styles/navbar.css">
 <link rel="stylesheet" href="styles/views.css">
@@ -30,10 +30,15 @@
 					</a>
 				</div>
 			</li>
-			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px"></li>
+			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px" onclick="showOption()"></li>
 			<li class="profile"><a href="cart.jsp"><img alt="cart" src="images/cart.png" width="60px" height="60px"></a></li>
 		</ul>
 		
+		<div id="option">
+			<a href="getOrders">Profile</a>
+			<a href="getOrderHistory">My History</a>
+			<a href="Logout"></a>
+		</div>
 		<nav id="nav">
 		<div class="catgry">
 			<ul>
@@ -115,5 +120,6 @@
 	</main>
 	
 	<script src="script/userpage.js"></script>
+	<script type="text/javascript" src="script/profilemenu.js"></script>
 </body>
 </html>

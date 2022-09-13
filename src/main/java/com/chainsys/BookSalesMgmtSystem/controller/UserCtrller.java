@@ -18,6 +18,7 @@ import com.chainsys.BookSalesMgmtSystem.dao.UserDao;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
 import com.chainsys.BookSalesMgmtSystem.model.Cart;
 import com.chainsys.BookSalesMgmtSystem.model.CartDetails;
+import com.chainsys.BookSalesMgmtSystem.model.OrderHistory;
 import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
 import com.chainsys.BookSalesMgmtSystem.model.Rating;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
@@ -287,6 +288,20 @@ public class UserCtrller {
 		}
 	}
 	
+	@GetMapping("/getProfile")
+	public String getProfile(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String uname = (String) session.getAttribute("user");
+		if(uname.equals(null)) {
+			model.addAttribute("msg", "Please login our system to order the books");
+			return "login.jsp";
+		}
+		else {
+			Users user = userDao.getUserById(uname);
+			model.addAttribute("userdata", user);
+			return "profile.jsp";
+		}
+	}
 	@GetMapping("/updateUser")
 	public String updateUser(@RequestParam("name") String name,@RequestParam("phno") String phno, @RequestParam("addr") String address, 
 			@RequestParam("dist") String district, @RequestParam("state") String state,
@@ -378,7 +393,7 @@ public class UserCtrller {
 		}
 	}
 	
-	@GetMapping("getOrders")
+	@GetMapping("/getOrderHistory")
 	public String getOrderById(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String userName = (String) session.getAttribute("user");
@@ -388,7 +403,7 @@ public class UserCtrller {
 				return "login.jsp";
 		}
 		else {
-			List<OrdersDetails> orderHistory = orderService.getOrderById(userName);
+			List<OrderHistory> orderHistory = orderService.getOrderById(userName);
 			model.addAttribute("orderHistory", orderHistory);
 			return "orderHistory.jsp";
 		}

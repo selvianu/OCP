@@ -3,14 +3,17 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
+<meta content="text/html; charset=utf-8" />
 <title>Order History</title>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link rel="stylesheet" href="styles/navbar.css">
+<link rel="stylesheet" href="styles/footer.css">
+<link rel="stylesheet" href="styles/history.css">
 </head>
 <body>
 <header>
-		<%-- <%= session.getAttribute("user") %> --%>
 		<ul>
 			<li class="left"><img src="images/Mars.png" height="95px"
 				width="150px"></li>
@@ -21,12 +24,16 @@
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
 			</li>
-			<li class="profile"><a href="profile.jsp" class="right"><img
-					alt="profile" src="images/profile.png" width="70px" height="70px"></a></li>
+			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px" onclick="showOption()"></li>
 			<li class="profile"><a href="carts"><img alt="cart" src="images/cart.png" width="60px" height="60px"></a></li>
 		</ul>
 	</header>
 
+	<div id="option">
+		<a href="getProfile">Profile</a>
+		<a href="getOrderHistory">My History</a>
+		<a href="Logout"></a>
+	</div>
 	<nav id="nav">
 		<div class="catgry">
 			<ul>
@@ -64,11 +71,32 @@
 	
 	<main>
 		<c:if test="${not empty orderHistory }">
-			<div class="history">
-				<div class="img">
+			<c:forEach var="orders" items="${orderHistory}" varStatus="loop">
+				<div class="orders">
+					<div class="order-history">
+					<div class="img">
+						<img alt="${orders.bookName }" src="data:image/jpg;base64,${orders.imagesPath}" width="100%" height="270px">
+					</div>
+					<div class="order-info">
+						<label class="bookname">${orders.bookName }</label>
+						<div class="info"><label>Price</label><label>${orders.actualPrice }</label></div>
+						<div class="info"><label>Quantity</label><label>${orders.quantity }</label></div>
+					</div>
 				</div>
-			</div>
+				<div class="order-details">
+					<label>Total Price </label>
+					<div>${orders.totalPrice }</div>
+					<label>Advance Amount</label>
+					<div>${orders.advanceAmount }</div>
+					<label>Ordered Date</label>
+					<div>${orders.orderDate }</div>
+					<label>Status</label>
+					<div>${orders.status }</div>
+				</div>		
+				</div>	
+			</c:forEach>
 		</c:if>
 	</main>
+	<script type="text/javascript" src="script/profilemenu.js"></script>
 </body>
 </html>

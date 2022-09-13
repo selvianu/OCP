@@ -75,10 +75,11 @@ li a {
 	height: 100%;
 	outline: none;
 	padding: 10px;
-	width: 100%
+	width: 10%
 }
 
 .profile {
+	cursor: pointer;
 	float: right;
 	margin-right: 20px
 }
@@ -103,10 +104,91 @@ nav {
 	padding-right: 20px;
 }
 
-.menu li:hover{
+.menu li:hover {
 	background-color: rgba(1, 1, 1, 0.5);
 }
 
 .menu li a {
 	color: white;
+}
+
+.catgry {
+	display: flex;
+	width: 100%;
+}
+
+.catgry li, .button {
+	cursor: pointer;
+	height: 40px;
+	padding-top: 10px;
+	width: 120px;
+}
+
+.catgry li a {
+	color: white;
+}
+
+.catgry li:hover, .menu li:hover {
+	background-color: rgba(1, 1, 1, 0.5);
+}
+
+.dropdown-btn, .dropdown-container, .dropdown-container>a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #818181;
+	display: block;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+}
+
+.dropdown-btn:hover {
+	color: #f1f1f1;
+}
+
+.dropdown-container {
+	display: block;
+	background-color: #262626;
+	padding-left: 8px;
+}
+
+.fa-caret-down {
+	float: right;
+	padding-right: 8px;
+}
+
+.filters {
+	background-color: white;
+	display: none;
+	position: absolute;
+	right: 0;
+	width: 20%;
+	z-index: 5;
+}
+
+.button {
+	float: right;
+	padding-right: 20px;
+}
+
+#option {
+	background-color: rgb(255, 249, 230);
+	border-radius: 10px;
+	display: none;
+	flex-direction: column;
+	line-height: 25px;
+	padding: 20px 20px 20px 20px;
+	position: absolute;
+	right: 5px;
+	text-decoration: none;
+	top: 80px;
+	z-index: 5;
+}
+
+#option>a{
+	text-decoration: none;
 }

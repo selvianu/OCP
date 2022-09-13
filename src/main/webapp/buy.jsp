@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
+<head lang="en">
+<meta content="text/html; charset=utf-8" />
 <title>user landing page</title>
 <link rel="stylesheet" href="styles/navbar.css">
 <link rel="stylesheet" href="styles/buy.css">

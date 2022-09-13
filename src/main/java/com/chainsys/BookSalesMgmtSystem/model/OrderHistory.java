@@ -13,6 +13,7 @@ public class OrderHistory {
 	private int advanceAmount;
 	private String status;
 	private String bookName;
+	private int actualPrice;
 	private byte[] bookImage;
 	private String imagesPath;
 
@@ -86,6 +87,14 @@ public class OrderHistory {
 
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
+	}
+
+	public int getActualPrice() {
+		return actualPrice;
+	}
+
+	public void setActualPrice(int actualPrice) {
+		this.actualPrice = actualPrice;
 	}
 
 	public byte[] getBookImage() {

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.chainsys.BookSalesMgmtSystem.dao.BookDao;
 import com.chainsys.BookSalesMgmtSystem.dao.OrderDao;
 import com.chainsys.BookSalesMgmtSystem.model.Books;
+import com.chainsys.BookSalesMgmtSystem.model.OrderHistory;
 import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
 import com.chainsys.BookSalesMgmtSystem.model.Rating;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
@@ -73,8 +74,8 @@ public class OrderService {
 		}
 	}
 	
-	public List<OrdersDetails> getOrderById(String userName){
-		List<OrdersDetails> orderList = orderDao.getOrdersById(userName);
+	public List<OrderHistory> getOrderById(String userName){
+		List<OrderHistory> orderList = orderDao.getOrdersById(userName);
 		return orderList;
 	}
 	

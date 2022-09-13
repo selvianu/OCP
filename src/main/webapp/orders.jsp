@@ -3,9 +3,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
+<meta content="text/html; charset=utf-8" />
 <title>Administrator page</title>
 <link rel="stylesheet" href="styles/navbar.css">
 <link rel="stylesheet" href="styles/footer.css">

@@ -3,9 +3,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
+<meta content="text/html; charset=utf-8" />
 <title>user landing page</title>
 <link rel="stylesheet" href="styles/user.css">
 <link rel="stylesheet" href="styles/footer.css">
@@ -13,7 +13,6 @@
 </head>
 <body>
 	<header>
-		<%-- <%= session.getAttribute("user") %> --%>
 		<ul>
 			<li class="left"><img src="images/Mars.png" height="95px"
 				width="150px"></li>
@@ -24,12 +23,16 @@
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
 			</li>
-			<li class="profile"><a href="profile.jsp" class="right"><img
-					alt="profile" src="images/profile.png" width="70px" height="70px"></a></li>
+			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px" onclick="showOption()"></li>
 			<li class="profile"><a href="carts"><img alt="cart" src="images/cart.png" width="60px" height="60px"></a></li>
 		</ul>
 	</header>
 
+	<div id="option">
+		<a href="getProfile">Profile</a>
+		<a href="getOrderHistory">My History</a>
+		<a href="Logout">Logout</a>
+	</div>
 	<nav id="nav">
 		<div class="catgry">
 			<ul>
@@ -164,5 +167,6 @@
 	</footer>
 
 <script src="script/userpage.js"></script>
+<script type="text/javascript" src="script/profilemenu.js"></script>
 </body>
 </html>

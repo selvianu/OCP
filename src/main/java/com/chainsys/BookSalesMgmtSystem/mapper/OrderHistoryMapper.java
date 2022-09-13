@@ -22,6 +22,7 @@ public class OrderHistoryMapper implements RowMapper<OrderHistory>{
 		int advanceAmount = rs.getInt(7);
 		String status = rs.getString(8);
 		String bookName = rs.getString(9);
+		int actualPrice = rs.getInt(10);
 		byte[] images = rs.getBytes("book_image");
 		String base64Image = Base64.getEncoder().encodeToString(images);
 		
@@ -35,6 +36,7 @@ public class OrderHistoryMapper implements RowMapper<OrderHistory>{
 		orderHistory.setAdvanceAmount(advanceAmount);
 		orderHistory.setStatus(status);
 		orderHistory.setBookName(bookName);
+		orderHistory.setActualPrice(actualPrice);
 		orderHistory.setBookImage(images);
 		orderHistory.setImagesPath(base64Image);
 		return orderHistory;
