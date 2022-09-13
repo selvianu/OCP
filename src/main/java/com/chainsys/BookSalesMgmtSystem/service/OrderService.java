@@ -1,12 +1,14 @@
 package com.chainsys.BookSalesMgmtSystem.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.BookSalesMgmtSystem.dao.BookDao;
 import com.chainsys.BookSalesMgmtSystem.dao.OrderDao;
+import com.chainsys.BookSalesMgmtSystem.model.Books;
 import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
 import com.chainsys.BookSalesMgmtSystem.model.Rating;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
@@ -75,4 +77,5 @@ public class OrderService {
 		List<OrdersDetails> orderList = orderDao.getOrdersById(userName);
 		return orderList;
 	}
+	
 }

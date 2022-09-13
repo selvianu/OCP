@@ -47,7 +47,7 @@
 
 				<p>If you are new User</p>
 
-				<a href="signin.jsp"><input type="button" value="Sign "
+				<a href="signup.jsp"><input type="button" value="Sign Up"
 					class="signin" /></a>
 			</fieldset>
 		</div>

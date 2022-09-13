@@ -108,13 +108,14 @@ public class OrderDao {
 	
 	public int addRating(Rating rating) {
 		String insertRating = "insert into bookreviews(bookid, username, review, rating)values(?, ?, ?, ?)";
-		Object[] ratingInfo = {rating.getBookId(), rating.getUserName(), rating.getRating(), rating.getReview()};
+		Object[] ratingInfo = {rating.getBookId(), rating.getUserName(), rating.getReview(), rating.getRating()};
 		try {
 			int noOfRowsAffected = jdbcTemplate.update(insertRating, ratingInfo);
 			return noOfRowsAffected;
 		}catch (Exception e) {
-			return 0;
+			e.printStackTrace();
 		}
+		return 0;
 	}
 	
 	public List<OrdersDetails> getOrdersById(String userName){

@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="styles/views.css">
 <link rel="stylesheet" href="styles/user.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 </head>
 <body>
 
@@ -29,8 +30,7 @@
 					</a>
 				</div>
 			</li>
-			<li class="profile"><a href="profile.jsp" class="right"><img
-					alt="profile" src="images/profile.png" width="70px" height="70px"></a></li>
+			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px"></li>
 			<li class="profile"><a href="cart.jsp"><img alt="cart" src="images/cart.png" width="60px" height="60px"></a></li>
 		</ul>
 		
@@ -44,10 +44,31 @@
 				<li><a href="userPoetry">Poetry</a></li>
 				<li><a href="userHistory">History</a></li>
 				<li><a href="userBooks">All</a></li>
+				<li class="button" onclick="showFilters()"><a href="#">Filters <i class="fa fa-caret-down"></i></a></li>
 			</ul>
 		</div>
 	</nav>	
 	</header>
+	
+	<div class="filters" id="filters">
+ 		<button class="dropdown-btn">Price <i class="fa fa-caret-down"></i></button>
+ 		<div class="dropdown-container">
+    		<a href="under200">Under Rs.200</a>
+    		<a href="over500">Rs.201 - Rs.500</a>
+    		<a href="over800">Rs.501 - Rs.800</a>
+    		<a href="under1000">Rs.801 - Rs.1000</a>
+    		<a href="over1000">Over Rs.1000</a>
+  		</div>
+ 		<button class="dropdown-btn">Language <i class="fa fa-caret-down"></i></button>
+ 		<div class="dropdown-container">
+    		<a href="language?lang=English">English</a>
+    		<a href="language?lang=Tamil">Tamil</a>
+    		<a href="language?lang=Hindi">Hindi</a>
+    		<a href="language?lang=Telugu">Telugu</a>
+    		<a href="language?lang=Malayalam">Malayalam</a>
+    		<a href="language?lang=Kanadam">Kanadam</a>
+  		</div>
+ 	</div>
 
 	<main>
 		<div><p class="msg">${msg }</p></div> 
@@ -92,5 +113,7 @@
 		</div>
 	</c:forEach>
 	</main>
+	
+	<script src="script/userpage.js"></script>
 </body>
 </html>

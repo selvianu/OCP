@@ -12,7 +12,6 @@
 </head>
 <body>
 	<header>
-		<%-- <%= session.getAttribute("user") %> --%>
 		<ul>
 			<li class="left"><img src="images/Mars.png" height="95px"
 				width="150px"></li>
@@ -39,9 +38,30 @@
 				<li><a href="userPoetry">Poetry</a></li>
 				<li><a href="userHistory">History</a></li>
 				<li><a href="getAllBooks">All</a></li>
+				<li class="button" onclick="showFilters()"><a href="#">Filters <i class="fa fa-caret-down"></i></a></li>
 			</ul>
 		</div>
 	</nav>
+	
+	<div class="filters" id="filters">
+ 		<button class="dropdown-btn">Price <i class="fa fa-caret-down"></i></button>
+ 		<div class="dropdown-container">
+    		<a href="under200">Under Rs.200</a>
+    		<a href="over500">Rs.201 - Rs.500</a>
+    		<a href="over800">Rs.501 - Rs.800</a>
+    		<a href="under1000">Rs.801 - Rs.1000</a>
+    		<a href="over1000">Over Rs.1000</a>
+  		</div>
+ 		<button class="dropdown-btn">Language <i class="fa fa-caret-down"></i></button>
+ 		<div class="dropdown-container">
+    		<a href="language?lang=English">English</a>
+    		<a href="language?lang=Tamil">Tamil</a>
+    		<a href="language?lang=Hindi">Hindi</a>
+    		<a href="language?lang=Telugu">Telugu</a>
+    		<a href="language?lang=Malayalam">Malayalam</a>
+    		<a href="language?lang=Kanadam">Kanadam</a>
+  		</div>
+ 	</div>
 	
 	<main>
 	
@@ -114,36 +134,6 @@
 		</div>
 	</footer>
 	
-	<script>
-		let slideIndex = 0;
-		
-		showSlides();
-
-		function showSlides() {
-			let i;
-			let slides = document.getElementsByClassName("slides");
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
-			}
-			slideIndex++;
-			if (slideIndex > slides.length) {
-				slideIndex = 1
-			}
-			slides[slideIndex - 1].style.display = "block";
-			setTimeout(showSlides, 2000); // Change image every 2 seconds
-		}
-
-		window.onscroll = function() {myFunction()};
-
-		var navbar = document.getElementById("nav");
-		var sticky = navbar.offsetTop;
-		function myFunction() {
-		  if (window.pageYOffset >= sticky) {
-		    navbar.classList.add("sticky")
-		  } else {
-		    navbar.classList.remove("sticky");
-		  }
-		}
-	</script>
+	<script src="script/userpage.js"></script>
 </body>
 </html>

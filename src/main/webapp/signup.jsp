@@ -41,15 +41,6 @@
 			class="login" /></a>
 	</fieldset>
 
-<script type="text/javascript">
-function myFunction() {
-	  var x = document.getElementById("pwd");
-	  if (x.type === "password") {
-	    x.type = "text";
-	  } else {
-	    x.type = "password";
-	  }
-	}
-   </script>
+<script src="script/signup.js"></script>
 </body>
 </html>

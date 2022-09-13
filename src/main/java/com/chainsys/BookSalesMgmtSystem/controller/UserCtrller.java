@@ -19,6 +19,7 @@ import com.chainsys.BookSalesMgmtSystem.model.Books;
 import com.chainsys.BookSalesMgmtSystem.model.Cart;
 import com.chainsys.BookSalesMgmtSystem.model.CartDetails;
 import com.chainsys.BookSalesMgmtSystem.model.OrdersDetails;
+import com.chainsys.BookSalesMgmtSystem.model.Rating;
 import com.chainsys.BookSalesMgmtSystem.model.Users;
 import com.chainsys.BookSalesMgmtSystem.service.OrderService;
 import com.chainsys.BookSalesMgmtSystem.service.UserService;
@@ -64,7 +65,7 @@ public class UserCtrller {
 			
 		}catch (Exception e) {
 			model.addAttribute("msg", "Some internal problem Please try again later");
-			return "signin.jsp";
+			return "signun.jsp";
 		}
 	}
 	
@@ -350,5 +351,46 @@ public class UserCtrller {
 		HttpSession session = request.getSession();
 		session.removeAttribute("id");
 		return "userBooks";
+	}
+	
+	@GetMapping("/addReview")
+	public String addBookReview(@RequestParam("id") String bookId, @RequestParam("rate") int rate, @RequestParam("review") String review, HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		String userName = (String) session.getAttribute("user");
+		if(userName.equals(null)) {
+			model.addAttribute("msg", "Please login into the system for review the book");
+			return "login.jsp";
+		}
+		else {
+			Rating rating = new Rating();
+			rating.setBookId(bookId);
+			rating.setRating(rate);
+			rating.setReview(review);
+			rating.setUserName(userName);
+			if(orderService.addRating(rating)) {
+				System.out.println("Review is successfully added");
+				return "userBooks";
+			}
+			else {
+				System.out.println("Some internal problem");
+				return "userBooks";
+			}
+		}
+	}
+	
+	@GetMapping("getOrders")
+	public String getOrderById(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String userName = (String) session.getAttribute("user");
+		
+		if(userName.equals(null)) {
+			model.addAttribute("msg", "Please login for see your Order History");
+				return "login.jsp";
+		}
+		else {
+			List<OrdersDetails> orderHistory = orderService.getOrderById(userName);
+			model.addAttribute("orderHistory", orderHistory);
+			return "orderHistory.jsp";
+		}
 	}
 }

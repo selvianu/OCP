@@ -147,7 +147,7 @@ nav {
 }
 
 .dropdown-container {
-	display: none;
+	display: block;
 	background-color: #262626;
 	padding-left: 8px;
 }

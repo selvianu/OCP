@@ -15,7 +15,6 @@
 </head>
 <body>
 	<header>
-		<%-- <%= session.getAttribute("user") %> --%>
 		<ul>
 			<li class="left"><img src="images/Mars.png" height="95px"
 				width="150px"></li>
@@ -41,10 +40,31 @@
 				<li><a href="userPoetry">Poetry</a></li>
 				<li><a href="userHistory">History</a></li>
 				<li><a href="userBooks">All</a></li>
+				<li class="button" onclick="showFilters()"><a href="#">Filters <i class="fa fa-caret-down"></i></a></li>
 			</ul>
 		</div>
 		</nav>
 	</header>
+	
+	<div class="filters" id="filters">
+ 		<button class="dropdown-btn">Price <i class="fa fa-caret-down"></i></button>
+ 		<div class="dropdown-container">
+    		<a href="under200">Under Rs.200</a>
+    		<a href="over500">Rs.201 - Rs.500</a>
+    		<a href="over800">Rs.501 - Rs.800</a>
+    		<a href="under1000">Rs.801 - Rs.1000</a>
+    		<a href="over1000">Over Rs.1000</a>
+  		</div>
+ 		<button class="dropdown-btn">Language <i class="fa fa-caret-down"></i></button>
+ 		<div class="dropdown-container">
+    		<a href="language?lang=English">English</a>
+    		<a href="language?lang=Tamil">Tamil</a>
+    		<a href="language?lang=Hindi">Hindi</a>
+    		<a href="language?lang=Telugu">Telugu</a>
+    		<a href="language?lang=Malayalam">Malayalam</a>
+    		<a href="language?lang=Kanadam">Kanadam</a>
+  		</div>
+ 	</div>
 	<main>
 		<div class="viewed-book">
 			<div class="imgdiv">
@@ -74,7 +94,7 @@
 					<div class="btn">
 						<a href="/addtocart?id=${book.bookId }&cat=${book.category}"><button class="cart">Add to cart</button></a>
 						<a href="/getOrders?id=${book.bookId}"><button class="order">Order</button></a>
-						<a href="#" class="review">Write Review</a>
+						<a href="#review-panel" class="review">Write Review</a>
 					</div>
 				</div>
 			</div>
@@ -85,18 +105,19 @@
 		</div>
 		
 		<div class="books-container">
-			<c:forEach var="book" items="${relatedBook}" varStatus="loop">
-				<c:if test = "${loop.index < 4}">
-					<div>
-						<div class="details">
-							<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="200px"
-								height="300px">
-							<h3>${book.bookName }</h3>
-							<h4>Rs.${book.actualPrice }</h4>
+			<c:forEach var="books" items="${relatedBook}" varStatus="loop">
+				<div class="book-info">
+						<div class="img">
+							<img alt="${books.bookName }" src="data:image/jpg;base64,${books.imagesPath}" width="100%" height="270px">
+							<h3>${books.bookName }</h3>
 						</div>
-						<div class="view-btn"><a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a></div>
+						<div class="details">
+							<h4>Rs.${books.actualPrice }</h4>
+						</div>
+						<div class="view-btn">
+							<a href="/getBooks?id=${books.bookId }&cat=${books.category}"><button>View</button></a>
+						</div>
 					</div>
-				</c:if>
 			</c:forEach>
 		</div>
 		
@@ -105,31 +126,39 @@
 		</div>
 		
 		<div class="books-container">
-			<c:forEach var="book" items="${topBooks}" varStatus="loop">
-				<c:if test = "${loop.index < 4}">
-					<div>
-						<div class="details">
-							<img alt="${book.bookName }" src="data:image/jpg;base64,${book.imagesPath}" width="200px"
-								height="300px">
-							<h3>${book.bookName }</h3>
-							<h4>Rs.${book.actualPrice }</h4>
+			<c:forEach var="books" items="${topBooks}" varStatus="loop">
+				<div class="book-info">
+						<div class="img">
+							<img alt="${books.bookName }" src="data:image/jpg;base64,${books.imagesPath}" width="100%" height="270px">
+							<h3>${books.bookName }</h3>
 						</div>
-						<div class="view-btn"><a href="/getBooks?id=${book.bookId }&cat=${book.category}"><button>View</button></a></div>
+						<div class="details">
+							<h4>Rs.${books.actualPrice }</h4>
+						</div>
+						<div class="view-btn">
+							<a href="/getBooks?id=${books.bookId }&cat=${books.category}"><button>View</button></a>
+						</div>
 					</div>
-				</c:if>
 			</c:forEach>
 		</div>
 		
-		<div class="review-panel">
-			<div class="star-rating">
-				<span class="rate-label">Rating :</span>
-       			<span class="fa fa-star-o" data-rating="1"></span>
-        		<span class="fa fa-star-o" data-rating="2"></span>
-       			<span class="fa fa-star-o" data-rating="3"></span>
-        		<span class="fa fa-star-o" data-rating="4"></span>
-       			<span class="fa fa-star-o" data-rating="5"></span>
-     			<input type="hidden" name="whatever1" class="rating-value" value="0.0">
+		<div class="review-panel" id="review-panel">
+			<h3>Write Your Reviews</h3>
+			<form action="/addReview">
+			<input type="hidden" name="id" value="${book.bookId }">
+			<div>
+				<label>Rating :</label>
+				<select name="rate">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
 			</div>
+			<textarea rows="5" placeholder="Write your review here" name="review"></textarea>
+			<input type="submit" value="Submit">
+			</form>
 		</div>
 	</main>
 	
@@ -152,30 +181,6 @@
 		</div>
 	</footer>
 	
-	<script type="text/javascript">
-	var $star_rating = $(".star-rating .fa");
-
-	var SetRatingStar = function () {
-	  return $star_rating.each(function () {
-	    if (
-	      parseInt($star_rating.siblings("input.rating-value").val()) >=
-	      parseInt($(this).data("rating"))
-	    ) {
-	      return $(this).removeClass("fa-star-o").addClass("fa-star");
-	    } else {
-	      return $(this).removeClass("fa-star").addClass("fa-star-o");
-	    }
-	  });
-	};
-
-	$star_rating.on("click", function () {
-	  $star_rating.siblings("input.rating-value").val($(this).data("rating"));
-	  return SetRatingStar();
-	});
-
-	SetRatingStar();
-	$(document).ready(function () {});
-
-	</script>	
+	<script src="script/userpage.js"></script>
 </body>
 </html>
