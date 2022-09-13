@@ -81,6 +81,11 @@
 								<label>Edition</label>
 							<input type="text" name="edition" value="${book.edition}" readonly>
 							</div>
+							
+							<div class="input-feild">
+								<label>Rating</label>
+							<input type="text" name="edition" value="${book.rate}" readonly>
+							</div>
 			
 							<div class="input-feild">
 								<label>Quantity</label>

@@ -75,7 +75,7 @@
 				
 			<label>Language</label>
 			<select name="lang" id="lang">
-				<option disabled selected>Select a category</option>
+				<option disabled selected>Select a Language</option>
 				<option>English</option>
 				<option>Tamil</option>
 				<option>Hindi</option>

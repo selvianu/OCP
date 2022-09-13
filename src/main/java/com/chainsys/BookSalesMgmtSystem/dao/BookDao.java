@@ -222,6 +222,17 @@ public class BookDao {
 		}
 	}
 	
+	public List<Books> getBookByCategory(String category){
+		String selectBookByCategory = "select * from bookdetails where category = ?";
+		List<Books> bookList = null;
+		try {
+			bookList = jdbcTemplate.query(selectBookByCategory, new BookMapper(), category);
+			return bookList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
 	public List<Books> getLowQuantityBooks(){
 		String selectBookByQuantity = "select * from bookdetails where avl_quantity < 15";
 		List<Books> bookList = null;

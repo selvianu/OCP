@@ -107,7 +107,7 @@ legend {
 	padding: 10px;
 }
 
-.input-icon i {
+.input-icon em {
 	margin-left: 10px;
 	margin-top: 3px;
 	position: absolute;
@@ -162,7 +162,7 @@ a{
 	text-decoration: none;
 }
 
-a > i{
+a > em{
 	color: #220e24;
 	font-size: 15px;
 }

@@ -28,6 +28,7 @@
 			<li class="profile"><img alt="profile" src="images/profile.png" width="70px" height="70px" onclick="showOption()"></li>
 			<li class="profile"><a href="carts"><img alt="cart" src="images/cart.png" width="60px" height="60px"></a></li>
 		</ul>
+	</header>
 		
 		<div id="option">
 		<a href="getProfile">Profile</a>
@@ -38,26 +39,25 @@
 		<div class="catgry">
 			<ul>
 			<li><a href="userBooks">Home</a></li>
-				<li><a href="userBiography">Biography</a></li>
-				<li><a href="userEducation">Education</a></li>
-				<li><a href="userNovels">Novels</a></li>
-				<li><a href="userPoetry">Poetry</a></li>
-				<li><a href="userHistory">History</a></li>
-				<li><a href="userBooks">All</a></li>
+				<li><a href="getBookByCategory?category=Biography">Biography</a></li>
+				<li><a href="getBookByCategory?category=Education">Education</a></li>
+				<li><a href="getBookByCategory?category=Novels">Novels</a></li>
+				<li><a href="getBookByCategory?category=Poetry">Poetry</a></li>
+				<li><a href="getBookByCategory?category=History">History</a></li>
+				<li><a href="getAllBooks">All</a></li>
 				<li class="button" onclick="showFilters()"><a href="#">Filters <em class="fa fa-caret-down"></em></a></li>
 			</ul>
 		</div>
 		</nav>
-	</header>
 	
 	<div class="filters" id="filters">
  		<button class="dropdown-btn">Price <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
-    		<a href="under200">Under Rs.200</a>
-    		<a href="over500">Rs.201 - Rs.500</a>
-    		<a href="over800">Rs.501 - Rs.800</a>
-    		<a href="under1000">Rs.801 - Rs.1000</a>
-    		<a href="over1000">Over Rs.1000</a>
+    		<a href="getBookByPrice?from=${0 }&to=${200}">Under Rs.200</a>
+    		<a href="getBookByPrice?from=${201 }&to=${500}">Rs.201 - Rs.500</a>
+    		<a href="getBookByPrice?from=${501 }&to=${800}">Rs.501 - Rs.800</a>
+    		<a href="getBookByPrice?from=${801 }&to=${1000}">Rs.801 - Rs.1000</a>
+    		<a href="getBookByPrice?from=${1000 }&to=${10000}">Over Rs.1000</a>
   		</div>
  		<button class="dropdown-btn">Language <em class="fa fa-caret-down"></em></button>
  		<div class="dropdown-container">
@@ -117,6 +117,50 @@
 						</div>
 						<div class="details">
 							<h4>Rs.${books.actualPrice }</h4>
+							<c:choose>
+								<c:when test="${book.rate == 1 }">
+									<div><span class="fa fa-star checked"></span></div>
+								</c:when>
+								<c:when test="${book.rate == 2 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								<c:when test="${book.rate == 3 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								<c:when test="${book.rate == 4 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								<c:when test="${book.rate == 5 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								<c:when test="${book.rate == 0 }">
+									<div>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</c:when>
+							</c:choose>
 						</div>
 						<div class="view-btn">
 							<a href="/getBooks?id=${books.bookId }&cat=${books.category}"><button>View</button></a>
@@ -138,6 +182,52 @@
 						</div>
 						<div class="details">
 							<h4>Rs.${books.actualPrice }</h4>
+							<c:choose>
+								<c:when test="${book.rate == 1 }">
+									<div><span class="fa fa-star checked"></span></div>
+								</c:when>
+								<c:when test="${book.rate == 2 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								<c:when test="${book.rate == 3 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								<c:when test="${book.rate == 4 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								<c:when test="${book.rate == 5 }">
+									<div>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+									</div>
+								</c:when>
+								
+								<c:when test="${book.rate == 0 }">
+									<div>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+									</div>
+								</c:when>
+								
+							</c:choose>
 						</div>
 						<div class="view-btn">
 							<a href="/getBooks?id=${books.bookId }&cat=${books.category}"><button>View</button></a>

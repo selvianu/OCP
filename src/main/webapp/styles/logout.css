@@ -24,7 +24,7 @@ body{
 	flex-direction: column;
 }
 
-.input-icon i {
+.input-icon em {
 	margin-left: 10px;
 	margin-top: 10px;
 	position: absolute;

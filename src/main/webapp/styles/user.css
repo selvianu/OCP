@@ -128,10 +128,11 @@ nav {
 }
 
 .dropdown-btn, .dropdown-container, .dropdown-container>a {
+	background-color: rgb(252, 252, 233);
 	padding: 6px 8px 6px 16px;
 	text-decoration: none;
 	font-size: 20px;
-	color: #818181;
+	color: black;
 	display: block;
 	border: none;
 	background: none;
@@ -141,13 +142,18 @@ nav {
 	outline: none;
 }
 
+.dropdown-container>a:hover{
+	background-color: white;
+}
+
 .dropdown-btn:hover {
-	color: #f1f1f1;
+	background-color: rgb(252, 252, 225);
+	color: black;
 }
 
 .dropdown-container {
+	background-color: rgb(249, 249, 210);
 	display: block;
-	background-color: #262626;
 	padding-left: 8px;
 }
 
@@ -161,6 +167,7 @@ nav {
 	display: none;
 	position: absolute;
 	right: 0;
+	top: 10;
 	width: 20%;
 	z-index: 5;
 }
@@ -241,10 +248,11 @@ nav {
 }
 
 .details {
-	height: 30px;
+	height: 50px;
 }
 
 .details>h4 {
+	margin-bottom: 10px;
 	text-align: center;
 }
 
@@ -300,4 +308,14 @@ nav {
 
 #option>a{
 	text-decoration: none;
+}
+
+.details>div{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.checked {
+  color: orange;
 }

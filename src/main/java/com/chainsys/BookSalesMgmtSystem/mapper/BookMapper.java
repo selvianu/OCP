@@ -26,6 +26,7 @@ public class BookMapper implements RowMapper<Books>{
 		String lang = rs.getString("language");
 		byte[] images = rs.getBytes("book_image");
 		String base64Image = Base64.getEncoder().encodeToString(images);
+		int rate = rs.getInt("rating");
 		
 		Books bk = new Books();
 		bk.setBookId(bkId);
@@ -41,6 +42,7 @@ public class BookMapper implements RowMapper<Books>{
 		bk.setLanguage(lang);
 		bk.setBookImage(images);
 		bk.setImagesPath(base64Image);
+		bk.setRate(rate);
 		return bk;		
 	}
 }

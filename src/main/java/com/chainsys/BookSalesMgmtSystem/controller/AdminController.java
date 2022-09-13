@@ -19,7 +19,7 @@ import com.chainsys.BookSalesMgmtSystem.model.Users;
 import com.chainsys.BookSalesMgmtSystem.service.AdminService;
 
 @Controller
-public class AdminCtrller {
+public class AdminController {
 	
 	@Autowired
 	AdminService adminService;

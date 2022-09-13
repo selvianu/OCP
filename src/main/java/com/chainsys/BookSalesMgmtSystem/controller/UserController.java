@@ -26,7 +26,7 @@ import com.chainsys.BookSalesMgmtSystem.service.OrderService;
 import com.chainsys.BookSalesMgmtSystem.service.UserService;
 
 @Controller
-public class UserCtrller {
+public class UserController {
 	
 	@Autowired
 	UserDao userDao;
@@ -116,7 +116,7 @@ public class UserCtrller {
 		List<Books> bookList = userService.getBooks();
 		model.addAttribute("books", bookList);
 		model.addAttribute("topBooks", topBooks);
-		return "user_landing.jsp";
+		return "userlanding.jsp";
 	}
 	
 	@GetMapping("/getAllBooks")
@@ -126,63 +126,11 @@ public class UserCtrller {
 		return "allbooks.jsp";
 	}
 	
-	@GetMapping("/userNovels")
-	public String getNovels(Model model) {
-		List<Books> novels = userService.getNovelBooks();
-		if(novels != null) {
-			model.addAttribute("books", novels);
-			return "allbooks.jsp";
-		}
-		else {
-			model.addAttribute("msg", "There is no Books are available now");
-			return "allbooks.jsp";
-		}
-	}
-	
-	@GetMapping("/userPoetry")
-	public String getPoetry(Model model) {
-		List<Books> poetry = userService.getPoetryBooks();
-		if(poetry != null) {
-			model.addAttribute("books", poetry);
-			return "allbooks.jsp";
-		}
-		else {
-			model.addAttribute("msg", "There is no Books are available now");
-			return "allbooks.jsp";
-		}
-	}
-	
-	@GetMapping("/userHistory")
-	public String getHistory(Model model) {
-		List<Books> history = userService.getHistoryBooks();
-		if(history != null) {
-			model.addAttribute("books", history);
-			return "allbooks.jsp";
-		}
-		else {
-			model.addAttribute("msg", "There is no Books are available now");
-			return "allbooks.jsp";
-		}
-	}
-	
-	@GetMapping("/userEducation")
-	public String getEducation(Model model) {
-		List<Books> education = userService.getEducationBooks();
-		if(education != null) {
-			model.addAttribute("books",education);
-			return "allbooks.jsp";
-		}
-		else {
-			model.addAttribute("msg", "There is no Books are available now");
-			return "allbooks.jsp";
-		}
-	}
-	
-	@GetMapping("/userBiography")
-	public String getBiography(Model model) {
-		List<Books> biography = userService.getBiographyBooks();
-		if(biography != null) {
-			model.addAttribute("books", biography);
+	@GetMapping("/getBookByCategory")
+	public String getBookBycategory(@RequestParam("category") String category, Model model) {
+		List<Books> bookList = userService.getBookBycategory(category);
+		if(bookList != null) {
+			model.addAttribute("books", bookList);
 			return "allbooks.jsp";
 		}
 		else {
@@ -331,9 +279,6 @@ public class UserCtrller {
 		return "buy.jsp";
 	}
 	
-//	@RequestParam("bookid") String bookId, @RequestParam("bookName") String bookName, @RequestParam("author") String author,
-//	@RequestParam("publisher") String publisher, @RequestParam("price") int price, @RequestParam("quantity") int quantity, @RequestParam("total") int totalPrice
-	
 	@GetMapping("/placeOrder")
 	public String addOrder(HttpServletRequest request, Model model, @RequestParam("bookid") String bookId, @RequestParam("quantity") int quantity, @RequestParam("total") int totalPrice, @RequestParam("advanceAmount") int advanceAmount) {
 		HttpSession session = request.getSession();
@@ -406,6 +351,32 @@ public class UserCtrller {
 			List<OrderHistory> orderHistory = orderService.getOrderById(userName);
 			model.addAttribute("orderHistory", orderHistory);
 			return "orderHistory.jsp";
+		}
+	}
+	
+	@GetMapping("/getBookByPrice")
+	public String getBookByPrice(@RequestParam("from") int from, @RequestParam("to") int to, Model model) {
+		List<Books> booksList = userService.getBooksByPrice(from, to);
+		if(booksList != null) {
+			model.addAttribute("books", booksList);
+			return "allbooks.jsp";
+		}
+		else {
+			model.addAttribute("msg", "No books");
+			return "allbooks.jsp";
+		}
+	}
+	
+	@GetMapping("/language")
+	public String getBooksByLanguage(@RequestParam("lang") String language, Model model) {
+		List<Books> booksList = userService.getBooksByLanguage(language);
+		if(booksList != null) {
+			model.addAttribute("books", booksList);
+			return "allbooks.jsp";
+		}
+		else {
+			model.addAttribute("msg", "No Books");
+			return "allbooks.jsp";
 		}
 	}
 }

@@ -57,7 +57,7 @@ body {
 	width: 100%;
 }
 
-.head>i {
+.head>em {
 	cursor: pointer;
 	float: right;
 }
@@ -117,12 +117,6 @@ input {
 h1{
 	text-align: center;
 }
-
-
-
-/* .popup{
-	display: none;
-} */
 
 .pop-active{
 	display: block;

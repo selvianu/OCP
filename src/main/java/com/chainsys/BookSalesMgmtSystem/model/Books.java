@@ -18,6 +18,7 @@ public class Books {
 	private int availableQuantity;
 	private byte[] bookImage;
 	private String imagesPath;
+	private int rate;
 
 	public String getBookId() {
 		return bookId;
@@ -121,6 +122,14 @@ public class Books {
 
 	public void setBookImage(byte[] bookImage) {
 		this.bookImage = bookImage;
+	}
+
+	public int getRate() {
+		return rate;
+	}
+
+	public void setRate(int rate) {
+		this.rate = rate;
 	}
 
 }

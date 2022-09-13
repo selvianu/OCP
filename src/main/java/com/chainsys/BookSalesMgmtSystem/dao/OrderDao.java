@@ -82,19 +82,21 @@ public class OrderDao {
 			int reviewerCount = jdbcTemplate.queryForObject(getReviewerCount, int.class, bookId);
 			return reviewerCount;
 		}catch (Exception e) {
-			return 0;
+			e.printStackTrace();
 		}
+		return 0;
 	}
 	
 	public int getSumOfRating(String bookId) {
 		String sumRatings = "select sum(rating) from bookreviews where bookid = ?";
 		try {
-			int sumOfRating = jdbcTemplate.queryForObject(sumRatings, int.class);
+			int sumOfRating = jdbcTemplate.queryForObject(sumRatings, int.class, bookId);
 			return sumOfRating;
 			
 		}catch (Exception e) {
-			return 0;
+			e.printStackTrace();
 		}
+		return 0;
 	}
 	
 	public int updateBookRating(String bookId, int rating) {
